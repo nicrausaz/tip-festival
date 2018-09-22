@@ -1,3 +1,3 @@
-# Quasar App
+# Quasar
 
-> WIP
+> Festival TIP EPSIC

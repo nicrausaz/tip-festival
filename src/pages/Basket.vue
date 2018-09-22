@@ -1,11 +1,15 @@
 <template>
   <q-page class="flex flex-center">
-    Sponsors.vue
+    Basket.vue
   </q-page>
 </template>
 
 <script>
 export default {
-  name: 'PageSponsors'
+
 }
 </script>
+
+<style>
+
+</style>

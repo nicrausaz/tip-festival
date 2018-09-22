@@ -31,7 +31,7 @@
           <q-item-side icon="record_voice_over" />
           <q-item-main label="Sponsors"/>
         </q-item>
-        <q-item @click.native="$router.push('/program')">
+        <q-item @click.native="$router.push('/contact')">
           <q-item-side icon="contact_support" />
           <q-item-main label="Contact"/>
         </q-item>
