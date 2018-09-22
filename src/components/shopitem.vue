@@ -10,7 +10,7 @@
     <p>Catégorie</p>
     <p class="text-faded">Description</p>
   </q-card-main>
-  <q-btn color="primary" class="float-right" @click="openModalSelector" label="Acheter" icon="add_shopping_cart" size="sm" />
+  <q-btn color="amber" class="float-right" @click="openModalSelector" label="Acheter" icon="add_shopping_cart" size="sm" />
 </q-card>
 </template>
 
