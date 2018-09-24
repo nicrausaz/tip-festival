@@ -1,25 +1,30 @@
 <template>
   <q-card style="width: 250px;" class="q-pa-sm q-ma-lg">
-  <q-card-media>
-    <img src="~assets/sad.svg">
-  </q-card-media>
-  <q-card-title>
-    Nom
-  </q-card-title>
-  <q-card-main>
-    <p>Catégorie</p>
-    <p class="text-faded">Description</p>
-  </q-card-main>
-  <q-btn color="amber" class="float-right" @click="openModalSelector" label="Acheter" icon="add_shopping_cart" size="sm" />
-</q-card>
+    <q-card-media>
+      <img src="~assets/sad.svg">
+    </q-card-media>
+    <q-card-title>
+      <b>{{data.name}}</b>
+    </q-card-title>
+    <q-card-main>
+      <p>{{data.price}} CHF</p>
+      <p class="text-faded">{{data.description}}</p>
+    </q-card-main>
+    <q-btn color="amber" class="float-right" @click="openModalSelector" label="Acheter" icon="add_shopping_cart" size="sm"/>
+  </q-card>
 </template>
 
 <script>
 export default {
   name: 'shopcard',
+  props: ['data'],
   methods: {
     openModalSelector () {
-      console.log('clicked id:')
+      let params = {
+        open: true,
+        id: this.data.id
+      }
+      this.$store.dispatch('moduleSizeModal/openModal', params)
     }
   }
 }

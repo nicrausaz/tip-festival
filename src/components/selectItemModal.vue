@@ -1,19 +1,18 @@
 <template>
-  <q-modal v-model="opened" content-css="padding: 20px">
+  <q-modal v-model="$store.state.moduleSizeModal.modal_open" content-css="padding: 20px">
     <p>Choisir une taille</p>
-    <q-select v-model="selectedSize" :options="selectOptions"/>
-    <q-btn color="amber" @click="opened = false" label="Annuler"/>
-    <q-btn color="amber" @click="opened = false" label="Confirmer"/>
-    {{selectedSize}}
+    <q-select v-model="selectedSize" :options="selectOptions" class="q-ma-md"/>
+    <q-btn color="amber float-left" size="sm" @click="exit" label="Annuler"/>
+    <q-btn color="amber float-right" size="sm" @click="addToBasket" label="Confirmer"/>
   </q-modal>
 </template>
 
 <script>
+import { Notify } from 'quasar'
 export default {
   name: 'selectItemModal',
   data () {
     return {
-      opened: false,
       selectedSize: null,
       selectOptions: [
         {
@@ -34,10 +33,35 @@ export default {
         }
       ]
     }
+  },
+  methods: {
+    exit () {
+      let params = {
+        open: false,
+        id: null
+      }
+      this.$store.dispatch('moduleSizeModal/openModal', params)
+    },
+    addToBasket () {
+      if (this.selectedSize) {
+        let params = {
+          id: this.$store.state.moduleSizeModal.item_id,
+          selectedSize: this.selectedSize
+        }
+        this.$store.dispatch('moduleShop/addItemToBasket', params)
+      } else {
+        Notify.create({
+          message: 'Merci de chosir une taille',
+          color: 'warning',
+          textColor: 'black',
+          icon: 'warning',
+          position: 'top'
+        })
+      }
+    }
+  },
+  components: {
+    Notify
   }
 }
 </script>
-
-<style>
-
-</style>
