@@ -52,6 +52,7 @@ module.exports = function (ctx) {
         'QIcon',
         'QList',
         'QListHeader',
+        'QInput',
         'QItem',
         'QItemMain',
         'QItemSide',
@@ -64,7 +65,10 @@ module.exports = function (ctx) {
         'QPageSticky',
         'QModal',
         'QSelect',
-        'QModalLayout'
+        'QModalLayout',
+        'QItemTile',
+        'QItemSeparator',
+        'QNumeric'
       ],
       directives: [
         'Ripple'
