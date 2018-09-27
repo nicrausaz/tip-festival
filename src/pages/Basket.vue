@@ -26,13 +26,13 @@
 export default {
   data () {
     return {
-      selectedQuantity: 1,
+      selectedQuantity: 1
       // optionsQuantity: Array.from(Array(10).keys())
     }
   },
   watch: {
     selectedQuantity () {
-      console.log("quantity has changed")
+      console.log('quantity has changed')
       // TODO: commit change to store
     }
   },

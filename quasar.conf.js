@@ -68,7 +68,10 @@ module.exports = function (ctx) {
         'QModalLayout',
         'QItemTile',
         'QItemSeparator',
-        'QNumeric'
+        'QSearch',
+        'QJumbotron',
+        'QParallax',
+        'AddressbarColor'
       ],
       directives: [
         'Ripple'

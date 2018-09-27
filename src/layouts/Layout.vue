@@ -14,7 +14,11 @@
 
     <q-layout-drawer v-model="leftDrawerOpen" :overlay="true">
       <q-list no-border link inset-delimiter>
-        <!-- <q-list-header>Essential Links</q-list-header> -->
+        <!-- <q-list-header>Menu</q-list-header> -->
+        <q-item @click.native="$router.push('/')">
+          <q-item-side icon="home" />
+          <q-item-main label="Accueil"/>
+        </q-item>
         <q-item @click.native="$router.push('/program')">
           <q-item-side icon="list" />
           <q-item-main label="Programme" sublabel="Artistes"/>
