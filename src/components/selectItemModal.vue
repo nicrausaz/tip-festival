@@ -48,7 +48,14 @@ export default {
           id: this.$store.state.moduleSizeModal.item_id,
           selectedSize: this.selectedSize
         }
-        this.$store.dispatch('moduleShop/addItemToBasket', params)
+        // TODO: check id + size
+        if (this.$store.state.moduleShop.shopbag_items.some(x => x.id === params.id)) {
+          this.$store.dispatch('moduleShop/incrementItemQuantityInBasket', params)
+          this.exit()
+        } else {
+          this.$store.dispatch('moduleShop/addItemToBasket', params)
+          this.exit()
+        }
       } else {
         Notify.create({
           message: 'Merci de chosir une taille',

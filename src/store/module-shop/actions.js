@@ -28,16 +28,21 @@ export function addItemToBasket (context, params) {
   // axios: get item from id
   let item = {
     id: params.id,
-    name: 'Parapluie',
-    description: 'Cool parapluie',
+    name: 'Item id ' + params.id,
+    description: 'Cool ' + params.id,
     price: 10,
+    quantity: 1,
     size: params.selectedSize
   }
-
-  console.log(item)
-  // TODO: check if item is arleady in shopbag
-
   context.commit('addItemToBasket', item)
+}
+
+export function incrementItemQuantityInBasket (context, params) {
+  context.commit('incrementItemQuantity', params)
+}
+
+export function removeItemFromBasket (context, id) {
+  context.commit('removeItemFromBasket', id)
 }
 
 export function clearBasket (context) {

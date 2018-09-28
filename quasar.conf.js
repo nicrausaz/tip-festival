@@ -71,10 +71,13 @@ module.exports = function (ctx) {
         'QSearch',
         'QJumbotron',
         'QParallax',
-        'AddressbarColor'
+        'AddressbarColor',
+        'QPopover',
+        'QCollapsible'
       ],
       directives: [
-        'Ripple'
+        'Ripple',
+        'CloseOverlay'
       ],
       // Quasar plugins
       plugins: [
