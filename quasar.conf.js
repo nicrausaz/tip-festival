@@ -73,7 +73,8 @@ module.exports = function (ctx) {
         'QParallax',
         'AddressbarColor',
         'QPopover',
-        'QCollapsible'
+        'QCollapsible',
+        'QTooltip'
       ],
       directives: [
         'Ripple',

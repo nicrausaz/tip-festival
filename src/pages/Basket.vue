@@ -9,7 +9,7 @@
               <q-popover>
                 <q-list link class="no-border">
                   <q-item v-close-overlay>
-                    <q-item-main label="Vider le panier" @click="clearBasket"/>
+                    <q-item-main label="Vider le panier" @click.native="clearBasket"/>
                   </q-item>
                 </q-list>
               </q-popover>
@@ -29,8 +29,10 @@
                     {{item.quantity}}
                   </q-item-tile>
                 </q-item-main>
-                  <q-btn icon="remove_shopping_cart" label="Retirer" @click="removeItem(item.id)" />
                 <q-item-side right>
+                  <q-btn icon="remove_shopping_cart" @click="removeItem(item.id, item.size)">
+                    <q-tooltip>Retirer l'élement du panier</q-tooltip>
+                  </q-btn>
                     <!-- <q-select v-model="selectedQuantity" :options="optionsQuantity" />
                 v-model="model"
                 placeholder="Quantité" -->
@@ -66,7 +68,7 @@
               <q-item>
                 <q-item-main>
                   <q-item-tile label><b>{{fullPrice}} CHF</b></q-item-tile>
-                  <q-item-tile sublabel>Total</q-item-tile>
+                  <q-item-tile sublabel>Total final</q-item-tile>
                 </q-item-main>
               </q-item>
             </q-list>
@@ -97,16 +99,19 @@ export default {
     }
   },
   methods: {
-    removeItem (id) {
-      console.log('remove ' + id)
-      // remove from basket id store
+    removeItem (id, size) {
+      let params = {
+        id: id,
+        size: size
+      }
+      this.$store.dispatch('moduleShop/removeItemFromBasket', params)
     },
     clearBasket () {
-      console.log('clear')
-      // replace direct by store
+      this.$store.dispatch('moduleShop/clearBasket')
+      this.$router.push('/shop')
     },
     confirmBasket () {
-      // replace direct by store
+      // POST basket content
     }
   },
   computed: {

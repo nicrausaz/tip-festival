@@ -7,9 +7,14 @@ import moduleSizeModal from './module-sizemodal'
 
 Vue.use(Vuex)
 
+Vue.config.productionTip = false
+
 export default function (/* { ssrContext } */) {
   const Store = new Vuex.Store({
     plugins: [createPersistedState()],
+    state: {
+      language: 'fr'
+    },
     modules: {
       moduleShop,
       moduleSizeModal

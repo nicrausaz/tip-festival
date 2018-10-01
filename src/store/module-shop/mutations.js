@@ -11,8 +11,8 @@ export function addItemToBasket (state, item) {
   state.shopbag_items.push(item)
 }
 
-export function removeItemFromBasket (state, itemId) {
-  state.shopbag_items.filter(x => x.id !== itemId)
+export function removeItemFromBasket (state, params) {
+  state.shopbag_items = state.shopbag_items.filter(item => item.id !== params.id && item.size !== params.size)
 }
 
 export function clearBasket (state) {

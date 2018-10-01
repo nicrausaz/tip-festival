@@ -41,8 +41,8 @@ export function incrementItemQuantityInBasket (context, params) {
   context.commit('incrementItemQuantity', params)
 }
 
-export function removeItemFromBasket (context, id) {
-  context.commit('removeItemFromBasket', id)
+export function removeItemFromBasket (context, params) {
+  context.commit('removeItemFromBasket', params)
 }
 
 export function clearBasket (context) {
