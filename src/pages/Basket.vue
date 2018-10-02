@@ -79,7 +79,13 @@
     </div>
   </q-page>
   <q-page v-else>
-    Panier vide
+      <div class="fixed-center text-center">
+      <p>
+        <img src="~assets/sad.svg" style="width:30vw;max-width:150px;">
+      </p>
+      <p class="text-faded"><strong>Panier vide</strong></p>
+      <q-btn color="amber" style="width:200px;" @click="$router.push('/shop')">Retour à la boutique</q-btn>
+    </div>
   </q-page>
 </template>
 
@@ -111,7 +117,7 @@ export default {
       this.$router.push('/shop')
     },
     confirmBasket () {
-      // POST basket content
+      // POST basket content (store action)
     }
   },
   computed: {

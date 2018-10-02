@@ -1,27 +1,16 @@
+import axios from 'axios'
+
 export function getShopItems (context) {
-  // replace this by axios response
-  let items = [
-    {
-      id: 1,
-      name: 'Tshirt',
-      description: 'Cool tshirt',
-      price: 20
-    },
-    {
-      id: 2,
-      name: 'Pull',
-      description: 'Cool pull',
-      price: 40
-    },
-    {
-      id: 3,
-      name: 'Parapluie',
-      description: 'Cool parapluie',
-      price: 10
-    }
-  ]
-  // axios request then:
-  context.commit('setShopItems', items)
+  axios({
+    method: 'get',
+    url: 'https://festival-back.robinsons.ch/api/' + context.rootState.language + '/articles'
+  })
+    .then((response) => {
+      context.commit('setShopItems', response)
+    })
+    .catch(err => {
+      console.log(err)
+    })
 }
 
 export function addItemToBasket (context, params) {
