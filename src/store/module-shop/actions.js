@@ -6,7 +6,7 @@ export function getShopItems (context) {
     url: 'https://festival-back.robinsons.ch/api/' + context.rootState.language + '/articles'
   })
     .then((response) => {
-      context.commit('setShopItems', response)
+      context.commit('setShopItems', response.data)
     })
     .catch(err => {
       console.log(err)
@@ -14,7 +14,18 @@ export function getShopItems (context) {
 }
 
 export function addItemToBasket (context, params) {
-  // axios: get item from id
+  // axios: get item from params.id
+  // axios({
+  //   method: 'get',
+  //   url: 'https://festival-back.robinsons.ch/api/' + context.rootState.language + '/article/' + params.id
+  // })
+  //   .then((response) => {
+  //     context.commit('setShopItems', response.data)
+  //   })
+  //   .catch(err => {
+  //     console.log(err)
+  //   })
+
   let item = {
     id: params.id,
     name: 'Item id ' + params.id,

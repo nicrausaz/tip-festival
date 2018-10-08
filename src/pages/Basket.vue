@@ -25,8 +25,8 @@
                   <q-item-tile label>{{item.name}}</q-item-tile>
                   <q-item-tile sublabel>
                     {{item.price}} CHF
-                    {{item.size}}
-                    {{item.quantity}}
+                    Taille: {{item.size}}
+                    Quantité: {{item.quantity}}
                   </q-item-tile>
                 </q-item-main>
                 <q-item-side right>
