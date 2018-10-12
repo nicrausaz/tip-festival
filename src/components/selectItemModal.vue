@@ -50,9 +50,11 @@ export default {
         }
         // TODO: check id + size
         if (this.$store.state.moduleShop.shopbag_items.some(x => x.id === params.id)) {
+          // item (id + size) is already in basket
           this.$store.dispatch('moduleShop/incrementItemQuantityInBasket', params)
           this.exit()
         } else {
+          // Add item to basket
           this.$store.dispatch('moduleShop/addItemToBasket', params)
           this.exit()
         }
