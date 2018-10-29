@@ -11,9 +11,17 @@
         Nous vous recommendons les transports en commun
       </q-card-main>
     </q-card>
-        <q-page-sticky position="bottom-right" :offset="[18, 18]">
-      <q-btn round size="lg" color="primary" icon="contact_support"/>
-    </q-page-sticky>
+    <q-card inline class="q-ma-sm sectionsItem">
+      <q-card-media>
+        <img src="statics/planaccess.png">
+        <q-card-title slot="overlay">
+          Accès
+        </q-card-title>
+      </q-card-media>
+      <q-card-main>
+        L'accès au festival se fait ...
+      </q-card-main>
+    </q-card>
     <q-card inline class="q-ma-sm sectionsItem">
       <q-card-media>
         <img src="statics/metro.jpeg">
