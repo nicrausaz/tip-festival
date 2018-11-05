@@ -1,9 +1,9 @@
 <template>
   <q-page class="layout-padding">
-    <q-select stack-label="Choisir une catégorie" inverted-light color="amber" separator v-model="selectedCategory" :options="test"/>
+    <q-select stack-label="Choisir une catégorie" inverted-light color="amber" separator v-model="selectedCategory" :options="options"/>
 
-    <div class="row">
-      <shopitem v-for="shopitem in $store.state.moduleShop.shop_items" :key="shopitem.id" :data="shopitem"></shopitem>
+    <div class="row" v-for="category in $store.state.moduleShop.shop_items" :key="category.id">
+      <shopitem v-for="shopitem in category.articles" :key="shopitem.id" :data="shopitem"></shopitem>
     </div>
     <q-page-sticky position="bottom-right" :offset="[18, 18]">
       <q-btn round size="lg" color="primary" @click="goToBasket" icon="shopping_cart"/>
@@ -21,17 +21,7 @@ export default {
   data () {
     return {
       selectedCategory: null,
-      options: [
-        {
-          label: 'Google',
-          value: 'goog'
-        },
-        {
-          label: 'Facebook',
-          value: 'fb'
-        }
-      ],
-      test: []
+      options: []
     }
   },
   created () {
@@ -44,7 +34,7 @@ export default {
     },
     setOptions () {
       for (let key in this.$store.state.moduleShop.shop_items) {
-        this.test.push({
+        this.options.push({
           label: this.$store.state.moduleShop.shop_items[key].name,
           value: this.$store.state.moduleShop.shop_items[key].id
         })

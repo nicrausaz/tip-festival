@@ -2,19 +2,16 @@
  <q-page class="flex flex-center">
    <q-card>
     <q-card-title>
-      Card Title
+      Trouver votre commande
     </q-card-title>
     <q-card-separator />
       <q-card-main>
-         <q-field icon="mail" label="Email" helper="Type the email we can use to contact you" error-label="Please type a valid email"
-          count
-        >
-          <q-input
-            type="email"
-            v-model="email"
-            @blur="$v.email.$touch"
-          />
-  </q-field>
+        <q-field icon="mail" label="Email" helper="Email" error-label="Veuillez entrer une adresse valide" count>
+          <q-input type="email" v-model="infos.email"/>
+        </q-field>
+        <q-field icon="id" label="Num de commande" helper="Email" error-label="Veuillez entrer une adresse valide" count>
+          <q-input type="email" v-model="infos.email"/>
+        </q-field>
       </q-card-main>
     </q-card>
  </q-page>
@@ -22,7 +19,14 @@
 
 <script>
 export default {
-
+  data () {
+    return {
+      infos: {
+        email: '',
+        orderId: null
+      }
+    }
+  }
 }
 </script>
 

@@ -3,7 +3,6 @@ export function setShopItems (state, items) {
 }
 
 export function incrementItemQuantity (state, params) {
-  // TODO: check size + id
   state.shopbag_items[params.id].quantity += 1
 }
 
