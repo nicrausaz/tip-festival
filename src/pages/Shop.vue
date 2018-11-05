@@ -1,6 +1,6 @@
 <template>
   <q-page class="layout-padding">
-    <q-select stack-label="Choisir une catégorie" inverted-light color="amber" separator v-model="selectedCategory" :options="options"/>
+    <q-select stack-label="Choisir" inverted-light color="amber" separator v-model="selectedCategory" :options="options"/>
 
     <div class="row" v-for="category in $store.state.moduleShop.shop_items" :key="category.id">
       <shopitem v-for="shopitem in category.articles" :key="shopitem.id" :data="shopitem"></shopitem>

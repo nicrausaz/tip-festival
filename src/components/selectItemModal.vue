@@ -2,8 +2,8 @@
   <q-modal v-model="$store.state.moduleSizeModal.modal_open" content-css="padding: 20px">
     <p>Choisir une taille</p>
     <q-select v-model="selectedSize" :options="selectOptions" class="q-ma-md"/>
-    <q-btn color="amber float-left" size="sm" @click="exit" label="Annuler"/>
-    <q-btn color="amber float-right" size="sm" @click="addToBasket" label="Confirmer"/>
+    <q-btn color="amber float-left" size="sm" @click="exit" :label="$store.state.moduleLanguage.translations.cancel"/>
+    <q-btn color="amber float-right" size="sm" @click="addToBasket" :label="$store.state.moduleLanguage.translations.confirm"/>
   </q-modal>
 </template>
 

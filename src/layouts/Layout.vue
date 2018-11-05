@@ -6,34 +6,33 @@
           <q-icon name="menu" />
         </q-btn>
         <q-toolbar-title>
-          Festival
-          <div slot="subtitle">the festival</div>
+          {{$store.state.moduleLanguage.translations.festival_name}}
+          <div slot="subtitle">{{$store.state.moduleLanguage.translations.festival_description}}</div>
         </q-toolbar-title>
       </q-toolbar>
     </q-layout-header>
 
     <q-layout-drawer v-model="leftDrawerOpen" :overlay="true">
       <q-list no-border link inset-delimiter>
-        <!-- <q-list-header>Menu</q-list-header> -->
         <q-item @click.native="$router.push('/')">
           <q-item-side icon="home" />
-          <q-item-main label="Accueil"/>
+          <q-item-main :label="$store.state.moduleLanguage.translations.festival_home"/>
         </q-item>
         <q-item @click.native="$router.push('/program')">
           <q-item-side icon="list" />
-          <q-item-main label="Programme" sublabel="Artistes"/>
+          <q-item-main :label="$store.state.moduleLanguage.translations.program" :sublabel="$store.state.moduleLanguage.translations.artists"/>
         </q-item>
         <q-item @click.native="$router.push('/infos')">
           <q-item-side icon="info" />
-          <q-item-main label="Infos pratique" sublabel="Restauration, transports ..." />
+          <q-item-main :label="$store.state.moduleLanguage.translations.infos" :sublabel="$store.state.moduleLanguage.translations.info_description" />
         </q-item>
         <q-item @click.native="$router.push('/shop')">
           <q-item-side icon="shopping_basket" />
-          <q-item-main label="Boutique" />
+          <q-item-main :label="$store.state.moduleLanguage.translations.shop" />
         </q-item>
         <q-item @click.native="$router.push('/sponsors')">
           <q-item-side icon="record_voice_over" />
-          <q-item-main label="Sponsors"/>
+          <q-item-main :label="$store.state.moduleLanguage.translations.sponsor"/>
         </q-item>
         <q-item @click.native="$router.push('/orders')">
           <q-item-side icon="shop_two" />
@@ -41,7 +40,7 @@
         </q-item>
         <q-item @click.native="$router.push('/contact')">
           <q-item-side icon="contact_support" />
-          <q-item-main label="Contact"/>
+          <q-item-main :label="$store.state.moduleLanguage.translations.contact"/>
         </q-item>
       </q-list>
     </q-layout-drawer>

@@ -6,8 +6,7 @@ export function getTranslations (context) {
     url: 'https://festival-back.robinsons.ch/api/' + context.rootState.language + '/lang/interface'
   })
     .then(response => {
-      // call this
-      console.log(response.data)
+      context.commit('setTranslations', response.data)
     })
     .catch(err => {
       console.log(err)

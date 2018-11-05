@@ -4,7 +4,7 @@
       <div class="col-8">
         <q-card class="q-ma-lg">
           <q-card-title class="bg-amber">
-            Contenu de votre panier
+            {{$store.state.moduleLanguage.translations.shopbag_content}}
             <q-btn round flat icon="more_vert" slot="right">
               <q-popover>
                 <q-list link class="no-border">
@@ -31,7 +31,7 @@
                 </q-item-main>
                 <q-item-side right>
                   <q-btn icon="remove_shopping_cart" @click="removeItem(item.id, item.size)">
-                    <q-tooltip>Retirer l'élement du panier</q-tooltip>
+                    <q-tooltip>{{$store.state.moduleLanguage.translations.shopbag_remove}}</q-tooltip>
                   </q-btn>
                     <!-- <q-select v-model="selectedQuantity" :options="optionsQuantity" />
                 v-model="model"
@@ -46,21 +46,21 @@
       <div class="col-4">
          <q-card class="q-ma-lg">
           <q-card-title class="bg-amber">
-            Récapitulatif
+            {{$store.state.moduleLanguage.translations.shopbag_recap}}
           </q-card-title>
           <q-card-main>
             <q-list class="q-ma-sm">
               <q-item>
                 <q-item-main>
                   <q-item-tile label>{{itemsPrice}} CHF</q-item-tile>
-                  <q-item-tile sublabel>Total des articles</q-item-tile>
+                  <q-item-tile sublabel>{{$store.state.moduleLanguage.translations.shopbag_total_products}}</q-item-tile>
                 </q-item-main>
                 <q-item-side right icon="shopping_basket" />
               </q-item>
               <q-item>
                 <q-item-main>
                   <q-item-tile label>{{shippingFee.toFixed(2)}} CHF</q-item-tile>
-                  <q-item-tile sublabel>Frais de livraison</q-item-tile>
+                  <q-item-tile sublabel>{{$store.state.moduleLanguage.translations.shopbag_shipping}}</q-item-tile>
                 </q-item-main>
                 <q-item-side right icon="local_shipping" />
               </q-item>
@@ -68,11 +68,11 @@
               <q-item>
                 <q-item-main>
                   <q-item-tile label><b>{{fullPrice}} CHF</b></q-item-tile>
-                  <q-item-tile sublabel>Total final</q-item-tile>
+                  <q-item-tile sublabel>{{$store.state.moduleLanguage.translations.shopbag_total}}</q-item-tile>
                 </q-item-main>
               </q-item>
             </q-list>
-            <q-btn class="q-ma-sm" color="primary" label="Confirmer" @click="confirmBasket" />
+            <q-btn class="q-ma-sm" color="primary" :label="$store.state.moduleLanguage.translations.confirm" @click="confirmBasket" />
           </q-card-main>
          </q-card>
       </div>

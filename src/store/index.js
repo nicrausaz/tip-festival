@@ -4,6 +4,7 @@ import createPersistedState from 'vuex-persistedstate'
 
 import moduleShop from './module-shop'
 import moduleSizeModal from './module-sizemodal'
+import moduleLanguage from './module-language'
 
 Vue.use(Vuex)
 
@@ -13,11 +14,12 @@ export default function (/* { ssrContext } */) {
   const Store = new Vuex.Store({
     plugins: [createPersistedState()],
     state: {
-      language: 'fr'
+      language: 'en'
     },
     modules: {
       moduleShop,
-      moduleSizeModal
+      moduleSizeModal,
+      moduleLanguage
     }
   })
   return Store
