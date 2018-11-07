@@ -75,7 +75,9 @@ module.exports = function (ctx) {
         'QPopover',
         'QCollapsible',
         'QTooltip',
-        'QField'
+        'QField',
+        'QTimeline',
+        'QTimelineEntry'
       ],
       directives: [
         'Ripple',

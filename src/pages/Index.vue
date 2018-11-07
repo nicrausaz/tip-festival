@@ -1,6 +1,6 @@
 <template>
   <q-page>
-    <q-parallax src="statics/concert3.jpg">
+    <q-parallax src="statics/concert3.jpg" :height="screenHeigth">
       <q-jumbotron id="indexPic" class="bg-amber">
         <div class="q-display-3">{{$store.state.moduleLanguage.translations.festival_name}}</div>
         <div class="q-subheading">
@@ -18,6 +18,11 @@
 
 <script>
 export default {
-  name: 'PageIndex'
+  name: 'PageIndex',
+  computed: {
+    screenHeigth () {
+      return window.innerHeight - 50
+    }
+  }
 }
 </script>
