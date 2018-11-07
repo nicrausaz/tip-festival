@@ -1,9 +1,7 @@
 <template>
   <q-page class="layout-padding">
-    <q-select stack-label="Choisir" inverted-light color="amber" separator v-model="selectedCategory" :options="options"/>
-
-    <div class="row" v-for="category in $store.state.moduleShop.shop_items" :key="category.id">
-      <shopitem v-for="shopitem in category.articles" :key="shopitem.id" :data="shopitem"></shopitem>
+    <div class="row">
+      <shopitem v-for="shopitem in $store.state.moduleShop.shop_items" :key="shopitem.id" :data="shopitem"></shopitem>
     </div>
     <q-page-sticky position="bottom-right" :offset="[18, 18]">
       <q-btn round size="lg" color="primary" @click="goToBasket" icon="shopping_cart"/>
@@ -20,7 +18,6 @@ export default {
   name: 'PageShop',
   data () {
     return {
-      selectedCategory: null,
       options: []
     }
   },

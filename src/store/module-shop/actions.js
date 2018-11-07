@@ -5,8 +5,14 @@ export function getShopItems (context) {
     method: 'get',
     url: 'https://festival-back.robinsons.ch/api/' + context.rootState.language + '/articles'
   })
-    .then((response) => {
-      context.commit('setShopItems', response.data)
+    .then(response => {
+      let products = []
+      response.data.forEach(category => {
+        category.articles.forEach(item => {
+          products.push(item)
+        })
+      })
+      context.commit('setShopItems', products)
     })
     .catch(err => {
       console.log(err)
