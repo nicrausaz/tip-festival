@@ -3,7 +3,11 @@ export function getItemsNumber (state) {
 }
 
 export function getTotalPrice (state) {
-  return state.shopbag_items.lenght > 0 ? state.shopbag_items.reduce((x, y) => x.price + y.price) : 0
+  let total = 0
+  state.shopbag_items.forEach(item => {
+    total += item.price
+  })
+  return total
 }
 
 export function hasBasketProducts (state) {

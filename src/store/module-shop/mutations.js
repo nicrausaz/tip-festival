@@ -3,7 +3,7 @@ export function setShopItems (state, items) {
 }
 
 export function incrementItemQuantity (state, params) {
-  state.shopbag_items[params.id].quantity += 1
+  state.shopbag_items.find(x => x.id === params.id).quantity += 1
 }
 
 export function addItemToBasket (state, item) {
