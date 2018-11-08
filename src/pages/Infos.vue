@@ -45,14 +45,17 @@
       </q-card-main>
     </q-card>
     <q-page-sticky position="bottom-right" :offset="[18, 18]">
-      <q-btn round size="lg" color="primary" icon="contact_support"/>
+      <q-btn round size="lg" color="primary" icon="contact_support" @click="contact"/>
     </q-page-sticky>
   </q-page>
 </template>
 
 <script>
 export default {
-  name: 'PageInfos'
+  name: 'PageInfos',
+  methods: {
+    contact () { this.$router.push('/contact') }
+  }
 }
 </script>
 
