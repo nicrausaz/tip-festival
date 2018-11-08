@@ -26,10 +26,10 @@
                   <q-item-tile sublabel>
                     {{item.price}} CHF
                     Taille: {{item.size}}
-                    Quantité: {{item.quantity}}
                   </q-item-tile>
                 </q-item-main>
                 <q-item-side right>
+                  Quantité: {{item.quantity}}
                   <q-btn icon="remove_shopping_cart" @click="removeItem(item.id, item.size)">
                     <q-tooltip>{{$store.state.moduleLanguage.translations.shopbag_remove}}</q-tooltip>
                   </q-btn>
