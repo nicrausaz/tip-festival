@@ -1,18 +1,43 @@
 <template>
- <q-page class="flex flex-center">
+ <q-page class="fixed-center q-mt-xl">
    <q-card>
-    <q-card-title class="amber">{{$store.state.moduleLanguage.translations.FindAnOrder}}</q-card-title>
-    <q-card-separator />
+    <q-card-title class="bg-amber text-center">{{$store.state.moduleLanguage.translations.FindAnOrder}}</q-card-title>
       <q-card-main>
-        <q-field icon="mail" :label="$store.state.moduleLanguage.translations.email">
-          <q-input type="email" v-model="infos.email"/>
-        </q-field>
-        <q-field icon="confirmation_number" :label="$store.state.moduleLanguage.translations.OrderNr">
-          <q-input type="number" v-model="infos.orderId"/>
-        </q-field>
-      <q-card-separator />
-      Entrez vos infos...
-      </q-card-main>
+        <div class="row q-pa-md">
+          <div class="col">
+            <q-field icon="mail">
+              <q-input type="email" :float-label="$store.state.moduleLanguage.translations.email" v-model="infos.email"/>
+            </q-field>
+          </div>
+          <div class="col">
+            <q-field icon="confirmation_number">
+              <q-input type="number" :float-label="$store.state.moduleLanguage.translations.OrderNr" v-model="infos.orderId"/>
+            </q-field>
+          </div>
+        </div>
+        <q-card-separator />
+        <div class="q-mt-md">
+          <div v-if="loaded">
+            <q-collapsible icon="format_list_bulleted" :label="$store.state.moduleLanguage.translations.orderContent" :opened="true">
+              <!-- <q-card>
+                <q-card-main>
+                  Adresse
+                </q-card-main>
+              </q-card> -->
+              <q-list highlight inset-separator>
+                <q-item>
+                  <q-item-side avatar="statics/icons/icon-256x256.png" />
+                  <q-item-main label="Article Name" label-lines="1" />
+                  <q-item-side right stamp="10 CHF" />
+                </q-item>
+              </q-list>
+            </q-collapsible>
+          </div>
+          <div v-else>
+            Entrez vos informations
+          </div>
+        </div>
+        </q-card-main>
     </q-card>
  </q-page>
 </template>
@@ -25,7 +50,8 @@ export default {
       infos: {
         email: '',
         orderId: null
-      }
+      },
+      loaded: true
     }
   }
 }
