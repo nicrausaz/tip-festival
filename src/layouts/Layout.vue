@@ -35,8 +35,8 @@
           <q-item-main :label="$store.state.moduleLanguage.translations.sponsor"/>
         </q-item>
         <q-item @click.native="$router.push('/orders')">
-          <q-item-side icon="shop_two" />
-          <q-item-main label="Mes commandes"/>
+          <q-item-side icon="shop_two"/>
+          <q-item-main :label="$store.state.moduleLanguage.translations.myorders" />
         </q-item>
         <q-item @click.native="$router.push('/contact')">
           <q-item-side icon="contact_support" />

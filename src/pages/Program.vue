@@ -1,8 +1,8 @@
 <template>
   <q-page>
     <q-timeline responsive color="secondary" style="padding: 0 24px;">
-      <q-timeline-entry heading>Programme</q-timeline-entry>
-      <q-timeline-entry heading>5 juillet</q-timeline-entry>
+      <q-timeline-entry heading>{{$store.state.moduleLanguage.translations.program}}</q-timeline-entry>
+      <q-timeline-entry heading>{{$store.state.moduleLanguage.translations['5thjuly']}}</q-timeline-entry>
 
       <q-timeline-entry title="Concert 1" subtitle="18H00" side="left" color="amber">
         <div>
@@ -16,7 +16,7 @@
         </div>
       </q-timeline-entry>
 
-      <q-timeline-entry heading>6 juillet</q-timeline-entry>
+      <q-timeline-entry heading>{{$store.state.moduleLanguage.translations['6thjuly']}}</q-timeline-entry>
 
       <q-timeline-entry title="Concert 3" subtitle="18H00" side="left" color="amber">
         <div>

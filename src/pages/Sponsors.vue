@@ -36,9 +36,6 @@
         Description 3
       </q-card-main>
     </q-card>
-    <q-page-sticky position="bottom-right" :offset="[18, 18]">
-      <q-btn round size="lg" color="primary" icon="contact_support"/>
-    </q-page-sticky>
   </q-page>
 </template>
 

@@ -1,8 +1,8 @@
 <template>
   <div class="fixed-center text-center">
-    <p class="text-faded"><strong>Une question ?</strong></p>
-    <p class="text-faded"><strong>Une demande particulière ?</strong></p>
-    <q-btn color="amber" style="width:200px;" @click="mailto">Contactez-nous</q-btn>
+    <p class="text-faded"><strong>{{$store.state.moduleLanguage.translations.askSthg}}</strong></p>
+    <p class="text-faded"><strong>{{$store.state.moduleLanguage.translations.askSmthParticular}}</strong></p>
+    <q-btn color="amber" style="width:200px;" @click="mailto">{{$store.state.moduleLanguage.translations.contactus}}</q-btn>
   </div>
 </template>
 
