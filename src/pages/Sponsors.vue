@@ -11,9 +11,6 @@
         Description 1
       </q-card-main>
     </q-card>
-        <q-page-sticky position="bottom-right" :offset="[18, 18]">
-      <q-btn round size="lg" color="primary" icon="contact_support"/>
-    </q-page-sticky>
     <q-card inline class="q-ma-sm sectionsItem">
       <q-card-media>
         <img src="statics/metro.jpeg">

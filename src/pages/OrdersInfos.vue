@@ -18,19 +18,30 @@
         <q-card-separator />
         <div class="q-mt-md">
           <div v-if="loaded">
-            <q-collapsible icon="format_list_bulleted" :label="$store.state.moduleLanguage.translations.orderContent" :opened="true">
-              <!-- <q-card>
-                <q-card-main>
-                  Adresse
-                </q-card-main>
-              </q-card> -->
+            <q-collapsible icon="home" popup :label="'Adresse'" :opened="true">
+              <table>
+                <tr>
+                  <td>Route</td>
+                  <td>Route</td>
+                </tr>
+              </table>
+              Route
+              NPA VILLE
+
+            </q-collapsible>
+            <q-collapsible icon="format_list_bulleted" popup :label="$store.state.moduleLanguage.translations.orderContent" :opened="true">
               <q-list highlight inset-separator>
                 <q-item>
                   <q-item-side avatar="statics/icons/icon-256x256.png" />
                   <q-item-main label="Article Name" label-lines="1" />
+                   <q-item-side stamp="2x" />
+                   <q-item-side stamp="Taille L" />
                   <q-item-side right stamp="10 CHF" />
                 </q-item>
               </q-list>
+              <br>
+              <q-card-separator />
+              Total
             </q-collapsible>
           </div>
           <div v-else>

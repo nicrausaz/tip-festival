@@ -17,7 +17,7 @@
           </q-card-title>
           <q-card-main>
             <q-list separator class="q-ma-sm">
-              <q-item v-for="item in $store.state.moduleShop.shopbag_items" :key="item.id" multiline>
+              <q-item v-for="item in $store.state.moduleShop.shopbag_items" :key="item.id + item.size" multiline>
                 <q-item-side avatar>
                   <img src="assets/sad.svg" height="30px">
                 </q-item-side>
@@ -28,14 +28,20 @@
                     Taille: {{item.size}}
                   </q-item-tile>
                 </q-item-main>
+                <q-item-side>
+                  <!-- {{$store.state.moduleLanguage.translations.quantity}} -->
+                </q-item-side>
+                <q-item-side>
+                  <!-- {{$store.state.moduleLanguage.translations.quantity}} -->
+                  <q-input type="number" :label="$store.state.moduleLanguage.translations.quantity" v-model="item.quantity"/>
+                  <!-- <q-field icon="mail">
+                  <q-input type="number" :float-label="$store.state.moduleLanguage.translations.email" />
+            </q-field> -->
+                </q-item-side>
                 <q-item-side right>
-                  Quantité: {{item.quantity}}
                   <q-btn icon="remove_shopping_cart" @click="removeItem(item.id, item.size)">
                     <q-tooltip>{{$store.state.moduleLanguage.translations.shopbag_remove}}</q-tooltip>
                   </q-btn>
-                    <!-- <q-select v-model="selectedQuantity" :options="optionsQuantity" />
-                v-model="model"
-                placeholder="Quantité" -->
                 </q-item-side>
             </q-item>
           <q-item-separator/>
