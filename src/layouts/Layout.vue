@@ -42,6 +42,10 @@
           <q-item-side icon="contact_support" />
           <q-item-main :label="$store.state.moduleLanguage.translations.contact"/>
         </q-item>
+        <q-item>
+          <q-item-side icon="language"/>
+          <q-select :value="$store.state.moduleLanguage.language" @input="changeLang" :options="$store.state.moduleLanguage.availableLanguages"/>
+        </q-item>
       </q-list>
     </q-layout-drawer>
 
@@ -56,16 +60,18 @@ import { openURL } from 'quasar'
 
 export default {
   name: 'Layout',
+  created () { this.$store.dispatch('moduleLanguage/getAvailableLanguages') },
   data () {
     return {
       leftDrawerOpen: this.$q.platform.is.desktop
     }
   },
   methods: {
-    openURL
+    openURL,
+    changeLang (lang) {
+      this.$store.commit('moduleLanguage/setLanguage', lang)
+      location.reload()
+    }
   }
 }
 </script>
-
-<style>
-</style>

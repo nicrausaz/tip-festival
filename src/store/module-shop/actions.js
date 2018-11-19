@@ -3,7 +3,7 @@ import axios from 'axios'
 export function getShopItems (context) {
   axios({
     method: 'get',
-    url: 'https://festival-back.robinsons.ch/api/' + context.rootState.language + '/articles'
+    url: 'https://festival-back.robinsons.ch/api/' + context.rootState.moduleLanguage.language + '/articles'
   })
     .then(response => {
       let products = []
@@ -22,7 +22,7 @@ export function getShopItems (context) {
 export function addItemToBasket (context, params) {
   axios({
     method: 'get',
-    url: 'https://festival-back.robinsons.ch/api/' + context.rootState.language + '/article/' + params.id
+    url: 'https://festival-back.robinsons.ch/api/' + context.rootState.moduleLanguage.language + '/article/' + params.id
   })
     .then(response => {
       let item = response.data

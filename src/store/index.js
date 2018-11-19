@@ -13,9 +13,6 @@ Vue.config.productionTip = false
 export default function (/* { ssrContext } */) {
   const Store = new Vuex.Store({
     plugins: [createPersistedState()],
-    state: {
-      language: 'en'
-    },
     modules: {
       moduleShop,
       moduleSizeModal,

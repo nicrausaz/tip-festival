@@ -27,7 +27,6 @@
               </table>
               Route
               NPA VILLE
-
             </q-collapsible>
             <q-collapsible icon="format_list_bulleted" popup :label="$store.state.moduleLanguage.translations.orderContent" :opened="true">
               <q-list highlight inset-separator>
