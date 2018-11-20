@@ -29,23 +29,20 @@
                   </q-item-tile>
                 </q-item-main>
                 <q-item-side>
-                  <!-- {{$store.state.moduleLanguage.translations.quantity}} -->
+                  <q-btn icon="remove" @click="decrementItem(item.id, item.size)" :disabled="item.quantity <= 1"></q-btn>
                 </q-item-side>
+                  <q-btn :label="item.quantity" disabled></q-btn>
                 <q-item-side>
-                  <!-- {{$store.state.moduleLanguage.translations.quantity}} -->
-                  <q-input type="number" :label="$store.state.moduleLanguage.translations.quantity" v-model="item.quantity"/>
-                  <!-- <q-field icon="mail">
-                  <q-input type="number" :float-label="$store.state.moduleLanguage.translations.email" />
-            </q-field> -->
+                  <q-btn icon="add" @click="incrementItem(item.id, item.size)" :disabled="item.quantity >= 10"></q-btn>
                 </q-item-side>
                 <q-item-side right>
-                  <q-btn icon="remove_shopping_cart" @click="removeItem(item.id, item.size)">
+                  <q-btn icon="remove_shopping_cart" @click="removeItem(item.id, item.size)" color="red">
                     <q-tooltip>{{$store.state.moduleLanguage.translations.shopbag_remove}}</q-tooltip>
                   </q-btn>
                 </q-item-side>
-            </q-item>
-          <q-item-separator/>
-        </q-list>
+              </q-item>
+            <q-item-separator/>
+          </q-list>
           </q-card-main>
         </q-card>
       </div>
@@ -104,12 +101,6 @@ export default {
       // optionsQuantity: Array.from(Array(10).keys())
     }
   },
-  watch: {
-    selectedQuantity () {
-      console.log('quantity has changed')
-      // TODO: commit change to store
-    }
-  },
   methods: {
     removeItem (id, size) {
       let params = {
@@ -117,6 +108,20 @@ export default {
         size: size
       }
       this.$store.dispatch('moduleShop/removeItemFromBasket', params)
+    },
+    decrementItem (id, size) {
+      let params = {
+        id: id,
+        size: size
+      }
+      this.$store.commit('moduleShop/decrementItemQuantity', params)
+    },
+    incrementItem (id, size) {
+      let params = {
+        id: id,
+        size: size
+      }
+      this.$store.commit('moduleShop/incrementItemQuantity', params)
     },
     clearBasket () {
       this.$store.dispatch('moduleShop/clearBasket')
@@ -129,7 +134,7 @@ export default {
   computed: {
     hasContent () { return this.$store.getters['moduleShop/hasBasketProducts'] },
     itemsPrice () { return this.$store.getters['moduleShop/getTotalPrice'].toFixed(2) },
-    fullPrice () { return this.shippingFee + this.$store.getters['moduleShop/getTotalPrice'] }
+    fullPrice () { return (this.shippingFee + this.$store.getters['moduleShop/getTotalPrice']).toFixed(2) }
   }
 }
 </script>

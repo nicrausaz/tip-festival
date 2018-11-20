@@ -1,6 +1,6 @@
 <template>
   <q-page>
-    <q-parallax src="statics/concert3.jpg" :height="screenHeigth">
+    <q-parallax src="statics/concert.jpg" :height="screenHeigth">
       <q-jumbotron id="indexPic" class="bg-amber">
         <div class="q-display-3">{{$store.state.moduleLanguage.translations.festival_name}}</div>
         <div class="q-subheading">

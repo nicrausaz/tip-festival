@@ -2,6 +2,10 @@ export function setShopItems (state, items) {
   state.shop_items = items
 }
 
+export function decrementItemQuantity (state, params) {
+  state.shopbag_items.find(x => x.id === params.id).quantity -= 1
+}
+
 export function incrementItemQuantity (state, params) {
   state.shopbag_items.find(x => x.id === params.id).quantity += 1
 }
