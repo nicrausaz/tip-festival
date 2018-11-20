@@ -25,3 +25,7 @@ export function removeItemFromBasket (state, params) {
 export function clearBasket (state) {
   state.shopbag_items = []
 }
+
+export function setAdressInfos (state, infos) {
+  state.order_address_infos = infos
+}

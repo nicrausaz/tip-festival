@@ -24,7 +24,7 @@
                 <q-item-tile label>{{item.name}}</q-item-tile>
                 <q-item-tile sublabel>
                   {{item.price}} CHF
-                  Taille: {{item.size}}
+                  {{$store.state.moduleLanguage.translations.size}}: {{item.size}}
                 </q-item-tile>
               </q-item-main>
               <q-item-side>
@@ -51,6 +51,17 @@
           {{$store.state.moduleLanguage.translations.adress}}
         </q-card-title>
         <q-card-main>
+          <q-field icon="person" label="Informations personnelles">
+            <q-input type="text" float-label="Nom" :value="$store.state.moduleShop.order_address_infos.name" v-model="orderInfos.name" @input="updateAdressInfos"/>
+            <q-input type="text" float-label="Prénom" :value="$store.state.moduleShop.order_address_infos.fsname" v-model="orderInfos.fsname" @input="updateAdressInfos"/>
+            <q-input type="email" :float-label="$store.state.moduleLanguage.translations.email" :value="$store.state.moduleShop.order_address_infos.email" v-model="orderInfos.email" @input="updateAdressInfos"/>
+          </q-field>
+          <br>
+          <q-field icon="home" :label="$store.state.moduleLanguage.translations.adress">
+            <q-input type="text" float-label="Rue & No" :value="$store.state.moduleShop.order_address_infos.adress" v-model="orderInfos.adress" @input="updateAdressInfos"/>
+            <q-input type="text" float-label="NPA" :value="$store.state.moduleShop.order_address_infos.npa" v-model="orderInfos.npa" @input="updateAdressInfos"/>
+            <q-input type="text" float-label="Localité" :value="$store.state.moduleShop.order_address_infos.city" v-model="orderInfos.city" @input="updateAdressInfos"/>
+          </q-field>
         </q-card-main>
         </q-card>
     </div>
@@ -93,8 +104,8 @@
       <p>
         <img src="~assets/sad.svg" style="width:30vw;max-width:150px;">
       </p>
-      <p class="text-faded"><strong>Panier vide</strong></p>
-      <q-btn color="amber" style="width:200px;" @click="$router.push('/shop')">Retour à la boutique</q-btn>
+      <p class="text-faded"><strong>{{$store.state.moduleLanguage.translations.backToShop}}</strong></p>
+      <q-btn color="amber" style="width:200px;" @click="$router.push('/shop')">{{$store.state.moduleLanguage.translations.backToShop}}</q-btn>
     </div>
   </q-page>
 </template>
@@ -103,8 +114,19 @@
 export default {
   data () {
     return {
-      shippingFee: 5
+      shippingFee: 5,
+      orderInfos: {
+        name: '',
+        fsname: '',
+        adress: '',
+        npa: '',
+        city: '',
+        email: ''
+      }
     }
+  },
+  created () {
+    this.orderInfos = this.$store.state.moduleShop.order_address_infos
   },
   methods: {
     removeItem (id, size) {
@@ -132,8 +154,14 @@ export default {
       this.$store.dispatch('moduleShop/clearBasket')
       this.$router.push('/shop')
     },
+    updateAdressInfos () {
+      this.$store.commit('moduleShop/setAdressInfos', this.orderInfos)
+    },
+    confirmAdress () {
+      // confirm
+    },
     confirmBasket () {
-      // POST basket content (store action)
+      // POST basket content & adress (store action)
     }
   },
   computed: {
