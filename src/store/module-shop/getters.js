@@ -5,7 +5,7 @@ export function getItemsNumber (state) {
 export function getTotalPrice (state) {
   let total = 0
   state.shopbag_items.forEach(item => {
-    total += item.price
+    total += item.price * item.quantity
   })
   return total
 }

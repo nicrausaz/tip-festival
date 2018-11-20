@@ -1,84 +1,91 @@
 <template>
   <q-page v-if="hasContent">
-    <div class="row">
-      <div class="col-8">
-        <q-card class="q-ma-lg">
-          <q-card-title class="bg-amber">
-            {{$store.state.moduleLanguage.translations.shopbag_content}}
-            <q-btn round flat icon="more_vert" slot="right">
-              <q-popover>
-                <q-list link class="no-border">
-                  <q-item v-close-overlay>
-                    <q-item-main label="Vider le panier" @click.native="clearBasket"/>
-                  </q-item>
-                </q-list>
-              </q-popover>
-            </q-btn>
-          </q-card-title>
-          <q-card-main>
-            <q-list separator class="q-ma-sm">
-              <q-item v-for="item in $store.state.moduleShop.shopbag_items" :key="item.id + item.size" multiline>
-                <q-item-side avatar>
-                  <img src="assets/sad.svg" height="30px">
-                </q-item-side>
-                <q-item-main>
-                  <q-item-tile label>{{item.name}}</q-item-tile>
-                  <q-item-tile sublabel>
-                    {{item.price}} CHF
-                    Taille: {{item.size}}
-                  </q-item-tile>
-                </q-item-main>
-                <q-item-side>
-                  <q-btn icon="remove" @click="decrementItem(item.id, item.size)" :disabled="item.quantity <= 1"></q-btn>
-                </q-item-side>
-                  <q-btn :label="item.quantity" disabled></q-btn>
-                <q-item-side>
-                  <q-btn icon="add" @click="incrementItem(item.id, item.size)" :disabled="item.quantity >= 10"></q-btn>
-                </q-item-side>
-                <q-item-side right>
-                  <q-btn icon="remove_shopping_cart" @click="removeItem(item.id, item.size)" color="red">
-                    <q-tooltip>{{$store.state.moduleLanguage.translations.shopbag_remove}}</q-tooltip>
-                  </q-btn>
-                </q-item-side>
-              </q-item>
-            <q-item-separator/>
-          </q-list>
-          </q-card-main>
+    <div>
+      <q-card class="q-ma-lg">
+        <q-card-title class="bg-amber">
+          {{$store.state.moduleLanguage.translations.shopbag_content}}
+          <q-btn round flat icon="more_vert" slot="right">
+            <q-popover>
+              <q-list link class="no-border">
+                <q-item v-close-overlay>
+                  <q-item-main label="Vider le panier" @click.native="clearBasket"/>
+                </q-item>
+              </q-list>
+            </q-popover>
+          </q-btn>
+        </q-card-title>
+        <q-card-main>
+          <q-list separator class="q-ma-sm">
+            <q-item v-for="item in $store.state.moduleShop.shopbag_items" :key="item.id + item.size" multiline>
+              <q-item-side avatar>
+                <img src="assets/sad.svg" height="30px">
+              </q-item-side>
+              <q-item-main>
+                <q-item-tile label>{{item.name}}</q-item-tile>
+                <q-item-tile sublabel>
+                  {{item.price}} CHF
+                  Taille: {{item.size}}
+                </q-item-tile>
+              </q-item-main>
+              <q-item-side>
+                <q-btn icon="remove" @click="decrementItem(item.id, item.size)" :disabled="item.quantity <= 1"></q-btn>
+              </q-item-side>
+                <q-btn :label="item.quantity" disabled></q-btn>
+              <q-item-side>
+                <q-btn icon="add" @click="incrementItem(item.id, item.size)" :disabled="item.quantity >= 10"></q-btn>
+              </q-item-side>
+              <q-item-side right>
+                <q-btn icon="remove_shopping_cart" @click="removeItem(item.id, item.size)" color="red">
+                  <q-tooltip>{{$store.state.moduleLanguage.translations.shopbag_remove}}</q-tooltip>
+                </q-btn>
+              </q-item-side>
+            </q-item>
+          <q-item-separator/>
+        </q-list>
+        </q-card-main>
+      </q-card>
+    </div>
+    <div>
+      <q-card class="q-ma-lg">
+        <q-card-title class="bg-amber">
+          {{$store.state.moduleLanguage.translations.adress}}
+        </q-card-title>
+        <q-card-main>
+        </q-card-main>
         </q-card>
-      </div>
-      <div class="col-4">
-         <q-card class="q-ma-lg">
-          <q-card-title class="bg-amber">
-            {{$store.state.moduleLanguage.translations.shopbag_recap}}
-          </q-card-title>
-          <q-card-main>
-            <q-list class="q-ma-sm">
-              <q-item>
-                <q-item-main>
-                  <q-item-tile label>{{itemsPrice}} CHF</q-item-tile>
-                  <q-item-tile sublabel>{{$store.state.moduleLanguage.translations.shopbag_total_products}}</q-item-tile>
-                </q-item-main>
-                <q-item-side right icon="shopping_basket" />
-              </q-item>
-              <q-item>
-                <q-item-main>
-                  <q-item-tile label>{{shippingFee.toFixed(2)}} CHF</q-item-tile>
-                  <q-item-tile sublabel>{{$store.state.moduleLanguage.translations.shopbag_shipping}}</q-item-tile>
-                </q-item-main>
-                <q-item-side right icon="local_shipping" />
-              </q-item>
-              <q-item-separator />
-              <q-item>
-                <q-item-main>
-                  <q-item-tile label><b>{{fullPrice}} CHF</b></q-item-tile>
-                  <q-item-tile sublabel>{{$store.state.moduleLanguage.translations.shopbag_total}}</q-item-tile>
-                </q-item-main>
-              </q-item>
-            </q-list>
-            <q-btn class="q-ma-sm" color="primary" :label="$store.state.moduleLanguage.translations.confirm" @click="confirmBasket" />
-          </q-card-main>
-         </q-card>
-      </div>
+    </div>
+    <div>
+      <q-card class="q-ma-lg">
+        <q-card-title class="bg-amber">
+          {{$store.state.moduleLanguage.translations.shopbag_recap}}
+        </q-card-title>
+        <q-card-main>
+          <q-list class="q-ma-sm">
+            <q-item>
+              <q-item-main>
+                <q-item-tile label>{{itemsPrice}} CHF</q-item-tile>
+                <q-item-tile sublabel>{{$store.state.moduleLanguage.translations.shopbag_total_products}}</q-item-tile>
+              </q-item-main>
+              <q-item-side right icon="shopping_basket" />
+            </q-item>
+            <q-item>
+              <q-item-main>
+                <q-item-tile label>{{shippingFee.toFixed(2)}} CHF</q-item-tile>
+                <q-item-tile sublabel>{{$store.state.moduleLanguage.translations.shopbag_shipping}}</q-item-tile>
+              </q-item-main>
+              <q-item-side right icon="local_shipping" />
+            </q-item>
+            <q-item-separator />
+            <q-item>
+              <q-item-main>
+                <q-item-tile label><b>{{fullPrice}} CHF</b></q-item-tile>
+                <q-item-tile sublabel>{{$store.state.moduleLanguage.translations.shopbag_total}}</q-item-tile>
+              </q-item-main>
+            </q-item>
+          </q-list>
+          <q-btn class="q-ma-sm" color="primary" :label="$store.state.moduleLanguage.translations.confirm"/>
+        </q-card-main>
+        </q-card>
     </div>
   </q-page>
   <q-page v-else>
@@ -96,9 +103,7 @@
 export default {
   data () {
     return {
-      selectedQuantity: 1,
-      shippingFee: 5.90
-      // optionsQuantity: Array.from(Array(10).keys())
+      shippingFee: 5
     }
   },
   methods: {

@@ -3,11 +3,11 @@ export function setShopItems (state, items) {
 }
 
 export function decrementItemQuantity (state, params) {
-  state.shopbag_items.find(x => x.id === params.id).quantity -= 1
+  state.shopbag_items.find(x => x.id === params.id && x.size === params.size).quantity -= 1
 }
 
 export function incrementItemQuantity (state, params) {
-  state.shopbag_items.find(x => x.id === params.id).quantity += 1
+  state.shopbag_items.find(x => x.id === params.id && x.size === params.size).quantity += 1
 }
 
 export function addItemToBasket (state, item) {
@@ -15,7 +15,11 @@ export function addItemToBasket (state, item) {
 }
 
 export function removeItemFromBasket (state, params) {
-  state.shopbag_items = state.shopbag_items.filter(item => item.id !== params.id && item.size !== params.size)
+  state.shopbag_items.forEach((item, index) => {
+    if (item.id === params.id && item.size === params.size) {
+      state.shopbag_items.splice(index, 1)
+    }
+  })
 }
 
 export function clearBasket (state) {
