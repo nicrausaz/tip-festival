@@ -24,7 +24,7 @@
                 <q-item-tile label>{{item.name}}</q-item-tile>
                 <q-item-tile sublabel>
                   {{item.price}} CHF
-                  {{$store.state.moduleLanguage.translations.size}}: {{item.size}}
+                  {{$store.state.moduleLanguage.translations.shop_size}}: {{item.size}}
                 </q-item-tile>
               </q-item-main>
               <q-item-side>
@@ -48,16 +48,16 @@
     <div>
       <q-card class="q-ma-lg">
         <q-card-title class="bg-amber">
-          {{$store.state.moduleLanguage.translations.adress}}
+          {{$store.state.moduleLanguage.translations.user_adress}}
         </q-card-title>
         <q-card-main>
           <q-field icon="person" label="Informations personnelles">
             <q-input type="text" float-label="Nom" :value="$store.state.moduleShop.order_address_infos.name" v-model="orderInfos.name" @input="updateAdressInfos"/>
             <q-input type="text" float-label="Prénom" :value="$store.state.moduleShop.order_address_infos.fsname" v-model="orderInfos.fsname" @input="updateAdressInfos"/>
-            <q-input type="email" :float-label="$store.state.moduleLanguage.translations.email" :value="$store.state.moduleShop.order_address_infos.email" v-model="orderInfos.email" @input="updateAdressInfos"/>
+            <q-input type="email" :float-label="$store.state.moduleLanguage.translations.user_email" :value="$store.state.moduleShop.order_address_infos.email" v-model="orderInfos.email" @input="updateAdressInfos"/>
           </q-field>
           <br>
-          <q-field icon="home" :label="$store.state.moduleLanguage.translations.adress">
+          <q-field icon="home" :label="$store.state.moduleLanguage.translations.user_adress">
             <q-input type="text" float-label="Rue & No" :value="$store.state.moduleShop.order_address_infos.adress" v-model="orderInfos.adress" @input="updateAdressInfos"/>
             <q-input type="text" float-label="NPA" :value="$store.state.moduleShop.order_address_infos.npa" v-model="orderInfos.npa" @input="updateAdressInfos"/>
             <q-input type="text" float-label="Localité" :value="$store.state.moduleShop.order_address_infos.city" v-model="orderInfos.city" @input="updateAdressInfos"/>
@@ -104,8 +104,8 @@
       <p>
         <img src="~assets/sad.svg" style="width:30vw;max-width:150px;">
       </p>
-      <p class="text-faded"><strong>{{$store.state.moduleLanguage.translations.backToShop}}</strong></p>
-      <q-btn color="amber" style="width:200px;" @click="$router.push('/shop')">{{$store.state.moduleLanguage.translations.backToShop}}</q-btn>
+      <p class="text-faded"><strong>{{$store.state.moduleLanguage.translations.shopbag_empty}}</strong></p>
+      <q-btn color="amber" style="width:200px;" @click="$router.push('/shop')">{{$store.state.moduleLanguage.translations.shop_backToShop}}</q-btn>
     </div>
   </q-page>
 </template>

@@ -10,7 +10,7 @@
       <p>{{data.price}} CHF</p>
       <p class="text-faded">{{data.description}}</p>
     </q-card-main>
-    <q-btn color="amber" class="float-right" @click="openModalSelector" :label="$store.state.moduleLanguage.translations.buy" icon="add_shopping_cart" size="sm"/>
+    <q-btn color="amber" class="float-right" @click="openModalSelector" :label="$store.state.moduleLanguage.translations.shop_buy" icon="add_shopping_cart" size="sm"/>
   </q-card>
 </template>
 

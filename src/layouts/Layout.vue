@@ -20,11 +20,11 @@
         </q-item>
         <q-item @click.native="$router.push('/program')">
           <q-item-side icon="list" />
-          <q-item-main :label="$store.state.moduleLanguage.translations.program" :sublabel="$store.state.moduleLanguage.translations.artists"/>
+          <q-item-main :label="$store.state.moduleLanguage.translations.festival_program" :sublabel="$store.state.moduleLanguage.translations.artists"/>
         </q-item>
         <q-item @click.native="$router.push('/infos')">
           <q-item-side icon="info" />
-          <q-item-main :label="$store.state.moduleLanguage.translations.infos" :sublabel="$store.state.moduleLanguage.translations.info_description" />
+          <q-item-main :label="$store.state.moduleLanguage.translations.festival_infos" :sublabel="$store.state.moduleLanguage.translations.info_description" />
         </q-item>
         <q-item @click.native="$router.push('/shop')">
           <q-item-side icon="shopping_basket" />
@@ -32,15 +32,15 @@
         </q-item>
         <q-item @click.native="$router.push('/sponsors')">
           <q-item-side icon="record_voice_over" />
-          <q-item-main :label="$store.state.moduleLanguage.translations.sponsor"/>
+          <q-item-main :label="$store.state.moduleLanguage.translations.festival_sponsor"/>
         </q-item>
         <q-item @click.native="$router.push('/orders')">
           <q-item-side icon="shop_two"/>
-          <q-item-main :label="$store.state.moduleLanguage.translations.myorders" />
+          <q-item-main :label="$store.state.moduleLanguage.translations.shop_myorders" />
         </q-item>
         <q-item @click.native="$router.push('/contact')">
           <q-item-side icon="contact_support" />
-          <q-item-main :label="$store.state.moduleLanguage.translations.contact"/>
+          <q-item-main :label="$store.state.moduleLanguage.translations.festival_contact"/>
         </q-item>
         <q-item>
           <q-item-side icon="language"/>

@@ -1,17 +1,17 @@
 <template>
  <q-page class="fixed-center q-mt-xl">
    <q-card>
-    <q-card-title class="bg-amber text-center">{{$store.state.moduleLanguage.translations.FindAnOrder}}</q-card-title>
+    <q-card-title class="bg-amber text-center">{{$store.state.moduleLanguage.translations.shop_FindAnOrder}}</q-card-title>
       <q-card-main>
         <div class="row q-pa-md">
           <div class="col">
             <q-field icon="mail">
-              <q-input type="email" :float-label="$store.state.moduleLanguage.translations.email" v-model="infos.email"/>
+              <q-input type="email" :float-label="$store.state.moduleLanguage.translations.user_email" v-model="infos.email"/>
             </q-field>
           </div>
           <div class="col">
             <q-field icon="confirmation_number">
-              <q-input type="number" :float-label="$store.state.moduleLanguage.translations.OrderNr" v-model="infos.orderId"/>
+              <q-input type="number" :float-label="$store.state.moduleLanguage.translations.shop_OrderNr" v-model="infos.orderId"/>
             </q-field>
           </div>
         </div>
@@ -28,7 +28,7 @@
               Route
               NPA VILLE
             </q-collapsible>
-            <q-collapsible icon="format_list_bulleted" popup :label="$store.state.moduleLanguage.translations.orderContent" :opened="true">
+            <q-collapsible icon="format_list_bulleted" popup :label="$store.state.moduleLanguage.translations.shop_orderContent" :opened="true">
               <q-list highlight inset-separator>
                 <q-item>
                   <q-item-side avatar="statics/icons/icon-256x256.png" />
