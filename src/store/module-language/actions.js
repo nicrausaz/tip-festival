@@ -25,3 +25,16 @@ export function getAvailableLanguages (context) {
       console.log(err)
     })
 }
+
+export function getInfosTexts (context) {
+  axios({
+    method: 'get',
+    url: 'https://festival-back.robinsons.ch/api/' + context.rootState.moduleLanguage.language + '/lang/info'
+  })
+    .then(response => {
+      context.commit('setInfosText', response.data)
+    })
+    .catch(err => {
+      console.log(err)
+    })
+}

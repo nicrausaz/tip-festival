@@ -25,6 +25,7 @@
                   <td>Route</td>
                 </tr>
               </table>
+              {{$store.state.moduleLanguage.translations.order_infos_content}}
               Route
               NPA VILLE
             </q-collapsible>
@@ -62,6 +63,15 @@ export default {
         orderId: null
       },
       loaded: true
+    }
+  },
+  methods: {
+    getOrder () {
+      if (this.infos.email && this.orderId) {
+        this.$store.dispatch('moduleOrder/getOrder')
+      } else {
+        console.log('incomplet')
+      }
     }
   }
 }

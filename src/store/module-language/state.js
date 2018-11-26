@@ -1,5 +1,6 @@
 export default {
   language: 'fr',
   availableLanguages: [],
-  translations: []
+  translations: [],
+  infosTexts: []
 }

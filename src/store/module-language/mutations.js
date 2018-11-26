@@ -7,3 +7,6 @@ export function setLanguage (state, lang) {
 export function setAvailableLanguages (state, languages) {
   state.availableLanguages = languages
 }
+export function setInfosText (state, infos) {
+  state.infosTexts = infos
+}
