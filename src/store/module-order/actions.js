@@ -12,3 +12,7 @@ export function getOrder (context, params) {
       console.log(err)
     })
 }
+
+export function clearOrder (context) {
+  context.commit('clearOrder')
+}

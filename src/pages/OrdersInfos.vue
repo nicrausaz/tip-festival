@@ -14,9 +14,11 @@
               <q-input type="number" :float-label="$store.state.moduleLanguage.translations.shop_OrderNr" v-model="infos.orderId"/>
             </q-field>
           </div>
+          <q-btn @click="getOrder"></q-btn>
         </div>
         <q-card-separator />
-        <div class="q-mt-md">
+          {{$store.state.moduleOrder.order_infos_content}}
+        <div class="q-mt-md" v-if="infos.email && infos.orderId">
           <div v-if="loaded">
             <q-collapsible icon="home" popup :label="'Adresse'" :opened="true">
               <table>
@@ -65,10 +67,17 @@ export default {
       loaded: true
     }
   },
+  created () {
+    this.$store.dispatch('moduleOrder/clearOrder')
+  },
   methods: {
     getOrder () {
-      if (this.infos.email && this.orderId) {
-        this.$store.dispatch('moduleOrder/getOrder')
+      if (this.infos.email && this.infos.orderId) {
+        let params = {
+          id: this.infos.orderId,
+          email: this.infos.email
+        }
+        this.$store.dispatch('moduleOrder/getOrder', params)
       } else {
         console.log('incomplet')
       }
