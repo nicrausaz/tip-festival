@@ -46,9 +46,9 @@ export default {
       if (this.selectedSize) {
         let params = {
           id: this.$store.state.moduleSizeModal.item_id,
-          selectedSize: this.selectedSize
+          size: this.selectedSize
         }
-        if (this.$store.state.moduleShop.shopbag_items.some(x => x.id === params.id && x.size === params.selectedSize)) {
+        if (this.$store.state.moduleShop.shopbag_items.some(x => x.id === params.id && x.size === params.size)) {
           // item (id + size) is already in basket
           this.$store.dispatch('moduleShop/incrementItemQuantityInBasket', params)
           this.exit()
