@@ -5,3 +5,7 @@ export function setModalOpen (state, open) {
 export function setItemId (state, id) {
   state.item_id = id
 }
+
+export function setItemSizes (state, sizes) {
+  state.available_sizes = sizes
+}

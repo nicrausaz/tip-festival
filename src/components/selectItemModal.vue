@@ -1,7 +1,8 @@
 <template>
   <q-modal v-model="$store.state.moduleSizeModal.modal_open" content-css="padding: 20px">
     <p>Choisir une taille</p>
-    <q-select v-model="selectedSize" :options="selectOptions" class="q-ma-md"/>
+    {{$store.state.moduleSizeModal.item_id}}
+    <q-select v-model="selectedSize" :options="$store.state.moduleSizeModal.available_sizes" class="q-ma-md"/>
     <q-btn color="amber float-left" size="sm" @click="exit" :label="$store.state.moduleLanguage.translations.cancel"/>
     <q-btn color="amber float-right" size="sm" @click="addToBasket" :label="$store.state.moduleLanguage.translations.confirm"/>
   </q-modal>
@@ -13,25 +14,7 @@ export default {
   name: 'selectItemModal',
   data () {
     return {
-      selectedSize: null,
-      selectOptions: [
-        {
-          label: 'S',
-          value: 'S'
-        },
-        {
-          label: 'M',
-          value: 'M'
-        },
-        {
-          label: 'L',
-          value: 'L'
-        },
-        {
-          label: 'XL',
-          value: 'XL'
-        }
-      ]
+      selectedSize: null
     }
   },
   methods: {
