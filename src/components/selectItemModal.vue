@@ -1,7 +1,6 @@
 <template>
   <q-modal v-model="$store.state.moduleSizeModal.modal_open" content-css="padding: 20px">
     <p>Choisir une taille</p>
-    {{$store.state.moduleSizeModal.item_id}}
     <q-select v-model="selectedSize" :options="$store.state.moduleSizeModal.available_sizes" class="q-ma-md"/>
     <q-btn color="amber float-left" size="sm" @click="exit" :label="$store.state.moduleLanguage.translations.cancel"/>
     <q-btn color="amber float-right" size="sm" @click="addToBasket" :label="$store.state.moduleLanguage.translations.confirm"/>
@@ -14,7 +13,7 @@ export default {
   name: 'selectItemModal',
   data () {
     return {
-      selectedSize: null
+      selectedSize: {}
     }
   },
   methods: {
@@ -26,12 +25,13 @@ export default {
       this.$store.dispatch('moduleSizeModal/openModal', params)
     },
     addToBasket () {
-      if (this.selectedSize) {
+      if (this.selectedSize.value) {
         let params = {
           id: this.$store.state.moduleSizeModal.item_id,
-          size: this.selectedSize
+          size_id: this.selectedSize.value,
+          size_value: this.selectedSize.label
         }
-        if (this.$store.state.moduleShop.shopbag_items.some(x => x.id === params.id && x.size === params.size)) {
+        if (this.$store.state.moduleShop.shopbag_items.some(x => x.id === params.id && x.size === params.size_value)) {
           // item (id + size) is already in basket
           this.$store.dispatch('moduleShop/incrementItemQuantityInBasket', params)
           this.exit()

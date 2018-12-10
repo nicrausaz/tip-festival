@@ -26,7 +26,9 @@ export function addItemToBasket (context, params) {
   })
     .then(response => {
       let item = response.data
-      item.size = params.size
+      item.id = params.id
+      item.size_id = params.size_id
+      item.size_value = params.size_value
       item.quantity = 1
       context.commit('addItemToBasket', item)
     })

@@ -16,7 +16,6 @@
           </div>
         </div>
         <q-card-separator />
-        {{$store.state.moduleOrder.order_infos_content}}
         <div class="q-mt-md" v-if="$store.state.moduleOrder.order_infos_content.id">
           <q-collapsible icon="info" popup :label="'Informations'" :opened="true">
             {{$store.state.moduleOrder.order_infos_content.name}}
