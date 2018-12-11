@@ -30,7 +30,7 @@ export function addItemToBasket (context, params) {
       item.size_id = params.size_id
       item.size_value = params.size_value
       item.quantity = 1
-      context.commit('addItemToBasket', item)
+      context.commit('pushItemToBasket', item)
     })
     .catch(err => {
       console.log(err)

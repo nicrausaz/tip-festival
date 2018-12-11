@@ -18,11 +18,8 @@ export default {
   },
   methods: {
     exit () {
-      let params = {
-        open: false,
-        id: null
-      }
-      this.$store.dispatch('moduleSizeModal/openModal', params)
+      this.selectedSize = {}
+      this.$store.dispatch('moduleSizeModal/closeModal')
     },
     addToBasket () {
       if (this.selectedSize.value) {
@@ -31,7 +28,7 @@ export default {
           size_id: this.selectedSize.value,
           size_value: this.selectedSize.label
         }
-        if (this.$store.state.moduleShop.shopbag_items.some(x => x.id === params.id && x.size === params.size_value)) {
+        if (this.$store.state.moduleShop.shopbag_items.some(x => x.id === params.id && x.size_value === params.size_value)) {
           // item (id + size) is already in basket
           this.$store.dispatch('moduleShop/incrementItemQuantityInBasket', params)
           this.exit()

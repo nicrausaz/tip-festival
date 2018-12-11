@@ -16,7 +16,7 @@
         </q-card-title>
         <q-card-main>
           <q-list separator class="q-ma-sm">
-            <q-item v-for="item in $store.state.moduleShop.shopbag_items" :key="item.id + item.size" multiline>
+            <q-item v-for="item in $store.state.moduleShop.shopbag_items" :key="item.id + item.size_value" multiline>
               <q-item-side avatar>
                 <img src="assets/sad.svg" height="30px">
               </q-item-side>
@@ -24,18 +24,18 @@
                 <q-item-tile label>{{item.name}}</q-item-tile>
                 <q-item-tile sublabel>
                   {{item.price}} CHF
-                  {{$store.state.moduleLanguage.translations.shop_size}}: {{item.size}}
+                  {{$store.state.moduleLanguage.translations.shop_size}}: {{item.size_value}}
                 </q-item-tile>
               </q-item-main>
               <q-item-side>
-                <q-btn icon="remove" @click="decrementItem(item.id, item.size)" :disabled="item.quantity <= 1"></q-btn>
+                <q-btn icon="remove" @click="decrementItem(item.id, item.size_value)" :disabled="item.quantity <= 1"></q-btn>
               </q-item-side>
                 <q-btn :label="item.quantity" disabled></q-btn>
               <q-item-side>
-                <q-btn icon="add" @click="incrementItem(item.id, item.size)" :disabled="item.quantity >= 10"></q-btn>
+                <q-btn icon="add" @click="incrementItem(item.id, item.size_value)" :disabled="item.quantity >= 10"></q-btn>
               </q-item-side>
               <q-item-side right>
-                <q-btn icon="remove_shopping_cart" @click="removeItem(item.id, item.size)" color="red">
+                <q-btn icon="remove_shopping_cart" @click="removeItem(item.id, item.size_value)" color="red">
                   <q-tooltip>{{$store.state.moduleLanguage.translations.shopbag_remove}}</q-tooltip>
                 </q-btn>
               </q-item-side>
@@ -132,21 +132,21 @@ export default {
     removeItem (id, size) {
       let params = {
         id: id,
-        size: size
+        size_value: size
       }
       this.$store.dispatch('moduleShop/removeItemFromBasket', params)
     },
     decrementItem (id, size) {
       let params = {
         id: id,
-        size: size
+        size_value: size
       }
       this.$store.commit('moduleShop/decrementItemQuantity', params)
     },
     incrementItem (id, size) {
       let params = {
         id: id,
-        size: size
+        size_value: size
       }
       this.$store.commit('moduleShop/incrementItemQuantity', params)
     },

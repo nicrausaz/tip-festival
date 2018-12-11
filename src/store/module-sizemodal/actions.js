@@ -15,8 +15,8 @@ export function openModal (context, params) {
     })
 }
 
-export function closeModal (context, params) {
-  context.commit('setModalOpen', params.open)
-  context.commit('setItemId', params.id)
-  context.commit('setItemSizes', null)
+export function closeModal (context) {
+  context.commit('setModalOpen', false)
+  context.commit('setItemId', null)
+  context.commit('setItemSizes', [])
 }
