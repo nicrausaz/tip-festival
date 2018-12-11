@@ -51,25 +51,26 @@ export function clearBasket (context) {
 
 export function confirmOrder (context) {
   axios({
-    method: 'get',
+    method: 'put',
     url: 'https://festival-back.robinsons.ch/api/' + context.rootState.moduleLanguage.language + '/order/',
     headers: {
       'Content-Type': 'application/json'
     },
-    data: {}
-    // {
-    //   "name":"Brugger",
-    //   "fsname":"Mathias",
-    //   "address":"Av. de l'Ile-Heureuse 12",
-    //   "npa":1800,
-    //   "city":"Vevey",
-    //   "email":"brugger.mathias@hotmail.com",
-    //   "articles":[
-    //     {"article_id":5,"size_id":3},
-    //     {"article_id":7,"size_id":6}]
-    // }
+    data: {
+      name: 'Brugger',
+      fsname: 'Mathias',
+      address: 'Av. 12',
+      npa: 1800,
+      city: 'Vevey',
+      email: 'brugger.mathias@hotmail.com',
+      articles: [
+        { article_id: 5, size_id: 3 },
+        { article_id: 7, size_id: 6 }
+      ]
+    }
   })
     .then(response => {
+      console.log(response)
     })
     .catch(err => {
       console.log(err)

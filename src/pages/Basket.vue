@@ -94,7 +94,7 @@
               </q-item-main>
             </q-item>
           </q-list>
-          <q-btn class="q-ma-sm" color="primary" :label="$store.state.moduleLanguage.translations.confirm"/>
+          <q-btn class="q-ma-sm" color="primary" :label="$store.state.moduleLanguage.translations.confirm" @click="confirmBasket"/>
         </q-card-main>
         </q-card>
     </div>
@@ -157,11 +157,9 @@ export default {
     updateAdressInfos () {
       this.$store.commit('moduleShop/setAdressInfos', this.orderInfos)
     },
-    confirmAdress () {
-      // confirm
-    },
     confirmBasket () {
-      // POST basket content & adress (store action)
+      // POST basket content & address (store action)
+      this.$store.dispatch('moduleShop/confirmOrder')
     }
   },
   computed: {

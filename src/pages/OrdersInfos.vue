@@ -6,12 +6,12 @@
         <div class="row q-pa-md">
           <div class="col">
             <q-field icon="mail">
-              <q-input type="email" :float-label="$store.state.moduleLanguage.translations.user_email" v-model="infos.email"/>
+              <q-input type="email" :float-label="$store.state.moduleLanguage.translations.user_email" v-model="infos.email" @keyup.enter="getOrder"/>
             </q-field>
           </div>
           <div class="col">
             <q-field icon="confirmation_number">
-              <q-input type="number" :float-label="$store.state.moduleLanguage.translations.shop_OrderNr" v-model="infos.orderId"/>
+              <q-input type="number" :float-label="$store.state.moduleLanguage.translations.shop_OrderNr" v-model="infos.orderId" @keyup.enter="getOrder"/>
             </q-field>
           </div>
         </div>
@@ -31,22 +31,21 @@
           </q-collapsible>
           <q-collapsible icon="format_list_bulleted" popup :label="$store.state.moduleLanguage.translations.shop_orderContent" :opened="true">
             <q-list highlight inset-separator>
-              {{$store.state.moduleOrder.order_infos_content.articles}}
-              <q-item>
+              <q-item v-for="item in $store.state.moduleOrder.order_infos_content.articles" :key="item.id">
                 <q-item-side avatar="statics/icons/icon-256x256.png" />
-                <q-item-main label="Article Name" label-lines="1" />
-                <q-item-side stamp="2x" />
-                <q-item-side stamp="Taille L" />
-                <q-item-side right stamp="10 CHF" />
+                <q-item-main :label="item.name" label-lines="1" />
+                <q-item-side :stamp="item.quantity" />
+                <q-item-side :stamp="item.size" />
+                <q-item-side right :stamp="item.price + ' CHF'" />
               </q-item>
             </q-list>
             <br>
             <q-card-separator />
-            Total
+            Total: {{itemsPrice}}
           </q-collapsible>
         </div>
         <div v-else>
-          <p class="text-center"><b>Entrez vos informations</b></p>
+          <p class="text-center q-pt-md"><b>{{$store.state.moduleLanguage.translations.shop_getInYourInfos}}</b></p>
         </div>
         <q-card-separator />
         <q-card-actions>
@@ -58,6 +57,7 @@
 </template>
 
 <script>
+import { Notify } from 'quasar'
 export default {
   name: 'PageOrderInfos',
   data () {
@@ -80,13 +80,18 @@ export default {
         }
         this.$store.dispatch('moduleOrder/getOrder', params)
       } else {
-        console.log('incomplet')
+        Notify.create({
+          message: this.$store.state.moduleLanguage.translations.shop_getInYourInfos,
+          color: 'warning',
+          textColor: 'black',
+          icon: 'warning',
+          position: 'top'
+        })
       }
     }
+  },
+  computed: {
+    itemsPrice () { return this.$store.getters['moduleOrder/getTotalPrice'] } // .toFixed(2)
   }
 }
 </script>
-
-<style>
-
-</style>
