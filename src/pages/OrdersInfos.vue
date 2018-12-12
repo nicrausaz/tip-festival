@@ -18,16 +18,18 @@
         <q-card-separator />
         <div class="q-mt-md" v-if="$store.state.moduleOrder.order_infos_content.id">
           <q-collapsible icon="info" popup :label="'Informations'" :opened="true">
-            {{$store.state.moduleOrder.order_infos_content.name}}
-            {{$store.state.moduleOrder.order_infos_content.fsname}}
-            {{$store.state.moduleOrder.order_infos_content.email}}
-            paiement: {{$store.state.moduleOrder.order_infos_content.paid_date}}
-            staut: {{$store.state.moduleOrder.order_infos_content.status}}
+            <div class="q-ma-sm">
+              <b>{{$store.state.moduleLanguage.translations.user_name}} & {{$store.state.moduleLanguage.translations.user_fsname}}:</b> {{$store.state.moduleOrder.order_infos_content.name}} {{$store.state.moduleOrder.order_infos_content.fsname}}<br>
+              <b>{{$store.state.moduleLanguage.translations.user_email}}:</b> {{$store.state.moduleOrder.order_infos_content.email}}<br>
+              <b>Paiement:</b> {{$store.state.moduleOrder.order_infos_content.paid_date || '-'}}<br>
+              <b>Statut:</b> {{$store.state.moduleOrder.order_infos_content.status}}<br>
+            </div>
           </q-collapsible>
           <q-collapsible icon="home" popup :label="'Adresse'" :opened="true">
-            {{$store.state.moduleOrder.order_infos_content.address}}
-            {{$store.state.moduleOrder.order_infos_content.npa}}
-            {{$store.state.moduleOrder.order_infos_content.city}}
+            <div class="q-ma-sm">
+              <b>{{$store.state.moduleLanguage.translations.user_streetNr}}:</b> {{$store.state.moduleOrder.order_infos_content.address}}<br>
+              <b>{{$store.state.moduleLanguage.translations.user_locality}}:</b> {{$store.state.moduleOrder.order_infos_content.npa}} {{$store.state.moduleOrder.order_infos_content.city}}<br>
+            </div>
           </q-collapsible>
           <q-collapsible icon="format_list_bulleted" popup :label="$store.state.moduleLanguage.translations.shop_orderContent" :opened="true">
             <q-list highlight inset-separator>
