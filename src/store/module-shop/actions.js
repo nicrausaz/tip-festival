@@ -50,12 +50,16 @@ export function clearBasket (context) {
 }
 
 export function confirmOrder (context) {
+  let infos = context.rootState.moduleShop.order_address_infos
+  let items = getItemsOrder(context)
+  infos.articles = items
   axios({
     method: 'put',
     url: 'https://festival-back.robinsons.ch/api/' + context.rootState.moduleLanguage.language + '/order',
     headers: {
       'Content-Type': 'application/json'
     },
+    // data: items,
     data: {
       name: 'Brugger',
       fsname: 'Mathias',
@@ -63,6 +67,7 @@ export function confirmOrder (context) {
       npa: 1800,
       city: 'Vevey',
       email: 'brugger.mathias@hotmail.com',
+      paid: 0,
       articles: [
         { article_id: 5, size_id: 3 },
         { article_id: 7, size_id: 6 }
@@ -75,4 +80,12 @@ export function confirmOrder (context) {
     .catch(err => {
       console.log(err)
     })
+}
+
+function getItemsOrder (context) {
+  let items = []
+  context.rootState.moduleShop.shopbag_items.forEach(item => {
+    items.push({article_id: item.id, size_id: item.size_id})
+  })
+  return items
 }

@@ -77,7 +77,8 @@ module.exports = function (ctx) {
         'QTooltip',
         'QField',
         'QTimeline',
-        'QTimelineEntry'
+        'QTimelineEntry',
+        'QRadio'
       ],
       directives: [
         'Ripple',

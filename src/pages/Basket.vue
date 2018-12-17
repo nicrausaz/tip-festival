@@ -62,6 +62,11 @@
             <q-input type="text" float-label="NPA" :value="$store.state.moduleShop.order_address_infos.npa" v-model="orderInfos.npa" @input="updateAdressInfos"/>
             <q-input type="text" float-label="Localité" :value="$store.state.moduleShop.order_address_infos.city" v-model="orderInfos.city" @input="updateAdressInfos"/>
           </q-field>
+          <br>
+          <q-field icon="paid" :label="$store.state.moduleLanguage.translations.user_adress">
+            <q-radio val="0" :value="$store.state.moduleShop.order_address_infos.paid" v-model="orderInfos.paid" color="amber" label="Facture" @input="updateAdressInfos"/>
+            <q-radio val="1" :value="$store.state.moduleShop.order_address_infos.paid" v-model="orderInfos.paid" color="amber" label="Nature" style="margin-left: 10px" @input="updateAdressInfos"/>
+          </q-field>
         </q-card-main>
         </q-card>
     </div>
