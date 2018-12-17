@@ -52,7 +52,7 @@ export function clearBasket (context) {
 export function confirmOrder (context) {
   axios({
     method: 'put',
-    url: 'https://festival-back.robinsons.ch/api/' + context.rootState.moduleLanguage.language + '/order/',
+    url: 'https://festival-back.robinsons.ch/api/' + context.rootState.moduleLanguage.language + '/order',
     headers: {
       'Content-Type': 'application/json'
     },
