@@ -1,7 +1,7 @@
 <template>
   <q-card style="width: 250px;" class="q-pa-sm q-ma-lg">
     <q-card-media>
-      <img src="~assets/sad.svg">
+      <img :src="imagePath">
     </q-card-media>
     <q-card-title>
       <b>{{data.name}}</b>
@@ -26,9 +26,11 @@ export default {
       }
       this.$store.dispatch('moduleSizeModal/openModal', params)
     }
+  },
+  computed: {
+    imagePath () {
+      return this.data.image_path || '~assets/sad.svg'
+    }
   }
 }
 </script>
-
-<style>
-</style>

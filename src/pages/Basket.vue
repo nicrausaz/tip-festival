@@ -51,30 +51,28 @@
           {{$store.state.moduleLanguage.translations.user_adress}}
         </q-card-title>
         <q-card-main>
-          <q-field icon="person" label="Informations personnelles">
-            <q-input type="text" float-label="Nom" :value="$store.state.moduleShop.order_address_infos.name" v-model="orderInfos.name" @input="updateAdressInfos"/>
-            <q-input type="text" float-label="Prénom" :value="$store.state.moduleShop.order_address_infos.fsname" v-model="orderInfos.fsname" @input="updateAdressInfos"/>
+          <q-field icon="person" :label="$store.state.moduleLanguage.translations.user_personnalInformation">
+            <q-input type="text" :float-label="$store.state.moduleLanguage.translations.user_name" :value="$store.state.moduleShop.order_address_infos.name" v-model="orderInfos.name" @input="updateAdressInfos"/>
+            <q-input type="text" :float-label="$store.state.moduleLanguage.translations.user_fsname" :value="$store.state.moduleShop.order_address_infos.fsname" v-model="orderInfos.fsname" @input="updateAdressInfos"/>
             <q-input type="email" :float-label="$store.state.moduleLanguage.translations.user_email" :value="$store.state.moduleShop.order_address_infos.email" v-model="orderInfos.email" @input="updateAdressInfos"/>
           </q-field>
           <br>
           <q-field icon="home" :label="$store.state.moduleLanguage.translations.user_adress">
-            <q-input type="text" float-label="Rue & No" :value="$store.state.moduleShop.order_address_infos.adress" v-model="orderInfos.adress" @input="updateAdressInfos"/>
-            <q-input type="text" float-label="NPA" :value="$store.state.moduleShop.order_address_infos.npa" v-model="orderInfos.npa" @input="updateAdressInfos"/>
-            <q-input type="text" float-label="Localité" :value="$store.state.moduleShop.order_address_infos.city" v-model="orderInfos.city" @input="updateAdressInfos"/>
+            <q-input type="text" :float-label="$store.state.moduleLanguage.translations.user_streetNr" :value="$store.state.moduleShop.order_address_infos.adress" v-model="orderInfos.adress" @input="updateAdressInfos"/>
+            <q-input type="text" :float-label="$store.state.moduleLanguage.translations.user_npa" :value="$store.state.moduleShop.order_address_infos.npa" v-model="orderInfos.npa" @input="updateAdressInfos"/>
+            <q-input type="text" :float-label="$store.state.moduleLanguage.translations.user_locality" :value="$store.state.moduleShop.order_address_infos.city" v-model="orderInfos.city" @input="updateAdressInfos"/>
           </q-field>
           <br>
-          <q-field icon="paid" :label="$store.state.moduleLanguage.translations.user_adress">
-            <q-radio val="0" :value="$store.state.moduleShop.order_address_infos.paid" v-model="orderInfos.paid" color="amber" label="Facture" @input="updateAdressInfos"/>
-            <q-radio val="1" :value="$store.state.moduleShop.order_address_infos.paid" v-model="orderInfos.paid" color="amber" label="Nature" style="margin-left: 10px" @input="updateAdressInfos"/>
+          <q-field icon="payment" :label="$store.state.moduleLanguage.translations.shop_payementMethod">
+            <q-radio val="0" :value="$store.state.moduleShop.order_address_infos.paid" v-model="orderInfos.paid" color="amber" :label="$store.state.moduleLanguage.translations.shop_bill" @input="updateAdressInfos"/>
+            <q-radio val="1" :value="$store.state.moduleShop.order_address_infos.paid" v-model="orderInfos.paid" color="amber" :label="$store.state.moduleLanguage.translations.shop_paidInKind" style="margin-left: 10px" @input="updateAdressInfos"/>
           </q-field>
         </q-card-main>
         </q-card>
     </div>
     <div>
       <q-card class="q-ma-lg">
-        <q-card-title class="bg-amber">
-          {{$store.state.moduleLanguage.translations.shopbag_recap}}
-        </q-card-title>
+        <q-card-title class="bg-amber">{{$store.state.moduleLanguage.translations.shopbag_recap}}</q-card-title>
         <q-card-main>
           <q-list class="q-ma-sm">
             <q-item>
