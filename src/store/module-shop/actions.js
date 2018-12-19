@@ -1,4 +1,5 @@
 import axios from 'axios'
+import { Notify } from 'quasar'
 
 export function getShopItems (context) {
   axios({
@@ -59,26 +60,28 @@ export function confirmOrder (context) {
     headers: {
       'Content-Type': 'application/json'
     },
-    // data: items,
-    data: {
-      name: 'Brugger',
-      fsname: 'Mathias',
-      address: 'Av. 12',
-      npa: 1800,
-      city: 'Vevey',
-      email: 'brugger.mathias@hotmail.com',
-      paid: 0,
-      articles: [
-        { article_id: 5, size_id: 3 },
-        { article_id: 7, size_id: 6 }
-      ]
-    }
+    data: infos
   })
     .then(response => {
-      console.log(response)
+      Notify.create({
+        message: 'Commande passée avec succès !',
+        color: 'positive',
+        textColor: 'black',
+        icon: 'warning',
+        position: 'top'
+      })
+      context.commit('clearBasket')
     })
     .catch(err => {
-      console.log(err)
+      Object.values(JSON.parse(err.response.data.message)).forEach(msg => {
+        Notify.create({
+          message: msg[0],
+          color: 'warning',
+          textColor: 'black',
+          icon: 'warning',
+          position: 'top'
+        })
+      })
     })
 }
 

@@ -1,4 +1,5 @@
 import axios from 'axios'
+import { Notify } from 'quasar'
 
 export function getOrder (context, params) {
   axios({
@@ -9,7 +10,13 @@ export function getOrder (context, params) {
       context.commit('setOrderInfosAndContent', response.data)
     })
     .catch(err => {
-      console.log(err)
+      Notify.create({
+        message: err.response.data.message,
+        color: 'negative',
+        textColor: 'black',
+        icon: 'warning',
+        position: 'top'
+      })
     })
 }
 

@@ -1,8 +1,8 @@
 {
   "name": "festival",
   "version": "1.0.0",
-  "description": "Fest' Hip-Hop",
-  "productName": "Festival EPSIC 2019",
+  "description": "Festival aux Pyramides de Vidy",
+  "productName": "Fest' Hip-Hop",
   "cordovaId": "org.cordova.quasar.app",
   "author": "nicrausaz <n.crausaz99@gmail.com>",
   "private": true,

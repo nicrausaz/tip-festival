@@ -5,7 +5,7 @@ export default {
     name: '',
     fsname: '',
     email: '',
-    adress: '',
+    address: '',
     npa: '',
     city: '',
     paid: 0

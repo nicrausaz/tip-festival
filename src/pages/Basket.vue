@@ -58,7 +58,7 @@
           </q-field>
           <br>
           <q-field icon="home" :label="$store.state.moduleLanguage.translations.user_adress">
-            <q-input type="text" :float-label="$store.state.moduleLanguage.translations.user_streetNr" :value="$store.state.moduleShop.order_address_infos.adress" v-model="orderInfos.adress" @input="updateAdressInfos"/>
+            <q-input type="text" :float-label="$store.state.moduleLanguage.translations.user_streetNr" :value="$store.state.moduleShop.order_address_infos.address" v-model="orderInfos.address" @input="updateAdressInfos"/>
             <q-input type="text" :float-label="$store.state.moduleLanguage.translations.user_npa" :value="$store.state.moduleShop.order_address_infos.npa" v-model="orderInfos.npa" @input="updateAdressInfos"/>
             <q-input type="text" :float-label="$store.state.moduleLanguage.translations.user_locality" :value="$store.state.moduleShop.order_address_infos.city" v-model="orderInfos.city" @input="updateAdressInfos"/>
           </q-field>
@@ -121,10 +121,11 @@ export default {
       orderInfos: {
         name: '',
         fsname: '',
-        adress: '',
+        address: '',
         npa: '',
         city: '',
-        email: ''
+        email: '',
+        paid: 0
       }
     }
   },
