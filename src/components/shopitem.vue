@@ -1,7 +1,7 @@
 <template>
   <q-card style="width: 250px;" class="q-pa-sm q-ma-lg">
     <q-card-media>
-      <img :src="imagePath">
+      <img :src="imagePath" alt="img">
     </q-card-media>
     <q-card-title>
       <b>{{data.name}}</b>
@@ -29,7 +29,7 @@ export default {
   },
   computed: {
     imagePath () {
-      return this.data.image_path || '~assets/sad.svg'
+      return this.data.image_path || 'assets/sad.svg'
     }
   }
 }

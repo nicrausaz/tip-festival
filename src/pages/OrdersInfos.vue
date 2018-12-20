@@ -40,10 +40,17 @@
                 <q-item-side :stamp="item.size" />
                 <q-item-side right :stamp="item.price + ' CHF'" />
               </q-item>
+              <q-item>
+                <q-item-side right icon="local_shipping" />
+                <q-item-main :label="$store.state.moduleLanguage.translations.shopbag_shipping" label-lines="1" />
+                <q-item-side right :stamp="'5 CHF'" />
+              </q-item>
             </q-list>
             <br>
             <q-card-separator />
-            Total: {{itemsPrice}}
+            <q-item>
+              <q-item-side right :stamp="$store.state.moduleLanguage.translations.shopbag_total + ': ' + itemsPrice + 'CHF'" />
+            </q-item>
           </q-collapsible>
         </div>
         <div v-else>

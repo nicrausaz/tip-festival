@@ -18,7 +18,7 @@
           <q-list separator class="q-ma-sm">
             <q-item v-for="item in $store.state.moduleShop.shopbag_items" :key="item.id + item.size_value" multiline>
               <q-item-side avatar>
-                <img src="assets/sad.svg" height="30px">
+                <img :src="getImagePath(item.image_path)" alt="img" height="30px">
               </q-item-side>
               <q-item-main>
                 <q-item-tile label>{{item.name}}</q-item-tile>
@@ -133,6 +133,7 @@ export default {
     this.orderInfos = this.$store.state.moduleShop.order_address_infos
   },
   methods: {
+    getImagePath (path) { return path || 'assets/sad.svg' },
     removeItem (id, size) {
       let params = {
         id: id,
