@@ -37,6 +37,22 @@
         </q-card-title>
       </q-card-media>
       <q-card-main>
+        <p><b>Deux Food-Trucks seront présents !</b></p>
+        <p><b>Aventura Pizza: </b>Pizzas, <a href="http://www.aventurapizza.ch/">http://www.aventurapizza.ch/</a></p>
+        <p><b>Nomad Food: </b>Hamburger & Tacos, <a href="http://www.nomad-food.ch/">http://www.nomad-food.ch/</a></p>
+        <br>
+        <p><b>Un stand de boisson vous servira de nombreuses minérales et bières !</b></p>
+        <p><b>Amstein: </b>Boissons, <a href="https://www.amstein.ch/">https://www.amstein.ch/</a></p>
+      </q-card-main>
+    </q-card>
+    <q-card inline class="q-ma-sm sectionsItem">
+      <q-card-media>
+        <img src="statics/metro.jpeg">
+        <q-card-title slot="overlay">
+          Tarifs
+        </q-card-title>
+      </q-card-media>
+      <q-card-main>
         <p><b>Nous vous recommandons les transports en commun</b></p>
         <p>Bus 1 et 6 arrêt Maladière, Lausanne (dernier départ bus 1 à env. 00:15, dernier départ bus 6 à env. 00:03, horaire selon le vendredi 05.08.2018 et le samedi 06.08.2018, il est possible que les horaires changent d’ici le vendredi 5 juillet).</p>
         <p>Bus 2 arrêt Théâtre de Vidy (dernier départ à env. 00:16, horaire selon le vendredi 05.08.2018 et le samedi 06.08.2018, il est possible que les horaires changent d’ici le vendredi 5 juillet).</p>
@@ -47,11 +63,11 @@
         <p>Plus d'informations sur <a href="https://www.t-l.ch/">https://www.t-l.ch/</a></p>
       </q-card-main>
     </q-card>
-    <q-card inline class="q-ma-sm sectionsItem">
+     <q-card inline class="q-ma-sm sectionsItem">
       <q-card-media>
         <img src="statics/metro.jpeg">
         <q-card-title slot="overlay">
-          Tarifs
+          Réglement
         </q-card-title>
       </q-card-media>
       <q-card-main>
