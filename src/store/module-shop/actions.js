@@ -88,7 +88,7 @@ export function confirmOrder (context) {
 function getItemsOrder (context) {
   let items = []
   context.rootState.moduleShop.shopbag_items.forEach(item => {
-    items.push({article_id: item.id, size_id: item.size_id})
+    items.push({article_id: item.id, size_id: item.size_id, quantity: item.quantity})
   })
   return items
 }

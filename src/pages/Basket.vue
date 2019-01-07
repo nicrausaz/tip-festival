@@ -52,15 +52,15 @@
         </q-card-title>
         <q-card-main>
           <q-field icon="person" :label="$store.state.moduleLanguage.translations.user_personnalInformation">
-            <q-input type="text" :float-label="$store.state.moduleLanguage.translations.user_name" :value="$store.state.moduleShop.order_address_infos.name" v-model="orderInfos.name" @input="updateAdressInfos"/>
-            <q-input type="text" :float-label="$store.state.moduleLanguage.translations.user_fsname" :value="$store.state.moduleShop.order_address_infos.fsname" v-model="orderInfos.fsname" @input="updateAdressInfos"/>
-            <q-input type="email" :float-label="$store.state.moduleLanguage.translations.user_email" :value="$store.state.moduleShop.order_address_infos.email" v-model="orderInfos.email" @input="updateAdressInfos"/>
+            <q-input type="text" :float-label="$store.state.moduleLanguage.translations.user_name" :value="$store.state.moduleShop.order_address_infos.name" v-model="orderInfos.name" @input="updateAdressInfos" required/>
+            <q-input type="text" :float-label="$store.state.moduleLanguage.translations.user_fsname" :value="$store.state.moduleShop.order_address_infos.fsname" v-model="orderInfos.fsname" @input="updateAdressInfos" required/>
+            <q-input type="email" :float-label="$store.state.moduleLanguage.translations.user_email" :value="$store.state.moduleShop.order_address_infos.email" v-model="orderInfos.email" @input="updateAdressInfos" required/>
           </q-field>
           <br>
           <q-field icon="home" :label="$store.state.moduleLanguage.translations.user_adress">
-            <q-input type="text" :float-label="$store.state.moduleLanguage.translations.user_streetNr" :value="$store.state.moduleShop.order_address_infos.address" v-model="orderInfos.address" @input="updateAdressInfos"/>
-            <q-input type="text" :float-label="$store.state.moduleLanguage.translations.user_npa" :value="$store.state.moduleShop.order_address_infos.npa" v-model="orderInfos.npa" @input="updateAdressInfos"/>
-            <q-input type="text" :float-label="$store.state.moduleLanguage.translations.user_locality" :value="$store.state.moduleShop.order_address_infos.city" v-model="orderInfos.city" @input="updateAdressInfos"/>
+            <q-input type="text" :float-label="$store.state.moduleLanguage.translations.user_streetNr" :value="$store.state.moduleShop.order_address_infos.address" v-model="orderInfos.address" @input="updateAdressInfos" required/>
+            <q-input type="text" :float-label="$store.state.moduleLanguage.translations.user_npa" :value="$store.state.moduleShop.order_address_infos.npa" v-model="orderInfos.npa" @input="updateAdressInfos" required/>
+            <q-input type="text" :float-label="$store.state.moduleLanguage.translations.user_locality" :value="$store.state.moduleShop.order_address_infos.city" v-model="orderInfos.city" @input="updateAdressInfos" required/>
           </q-field>
           <br>
           <q-field icon="payment" :label="$store.state.moduleLanguage.translations.shop_payementMethod">
