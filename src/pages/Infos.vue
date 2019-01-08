@@ -15,7 +15,7 @@
       <q-card-media>
         <img src="statics/parking.jpg">
         <q-card-title slot="overlay">
-          Parking
+          {{$store.state.moduleLanguage.translations.festival_access}}
         </q-card-title>
       </q-card-media>
       <q-card-main>
