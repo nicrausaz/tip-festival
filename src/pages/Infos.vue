@@ -55,7 +55,7 @@
         <p><b>Ligne 1</b>: Depuis la gare de Lausanne, prendre le bus 1 jusqu’à l’arrêt Maladière, Lausanne.</p>
         <p><b>Ligne 2</b>: Depuis la gare de Lausanne, prendre le M2 jusqu’à Ouchy Olympique (dernier métro à env. 00:30) puis prendre le bus 2 jusqu’à l’arrêt Théâtre de Vidy.</p>
         <p><b>Ligne 6</b>: Depuis la gare de Lausanne, prendre le M2 jusqu’à l’arrêt Lausanne-Flon (dernier métro à env. 00:30), puis marcher jusqu’à l’arrêt Bel-Air pour y prendre le bus 6 jusqu’à l’arrêt Maladière, Lausanne.</p>
-        <p>Plus d'informations sur <a href="https://www.t-l.ch/">https://www.t-l.ch/</a></p>
+        <p>Plus d'informations sur <a href="https://www.t-l.ch/" target="_blank">https://www.t-l.ch/</a></p>
       </q-card-main>
     </q-card>
      <q-card inline class="q-ma-sm sectionsItem">
@@ -73,7 +73,7 @@
         <p><b>Ligne 1</b>: Depuis la gare de Lausanne, prendre le bus 1 jusqu’à l’arrêt Maladière, Lausanne.</p>
         <p><b>Ligne 2</b>: Depuis la gare de Lausanne, prendre le M2 jusqu’à Ouchy Olympique (dernier métro à env. 00:30) puis prendre le bus 2 jusqu’à l’arrêt Théâtre de Vidy.</p>
         <p><b>Ligne 6</b>: Depuis la gare de Lausanne, prendre le M2 jusqu’à l’arrêt Lausanne-Flon (dernier métro à env. 00:30), puis marcher jusqu’à l’arrêt Bel-Air pour y prendre le bus 6 jusqu’à l’arrêt Maladière, Lausanne.</p>
-        <p>Plus d'informations sur <a href="https://www.t-l.ch/">https://www.t-l.ch/</a></p>
+        <p>Plus d'informations sur <a href="https://www.t-l.ch/" target="_blank">https://www.t-l.ch/</a></p>
       </q-card-main>
     </q-card>
     <q-page-sticky position="bottom-right" :offset="[18, 18]">
