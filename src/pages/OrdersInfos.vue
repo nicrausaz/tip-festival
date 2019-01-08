@@ -34,7 +34,7 @@
           <q-collapsible icon="format_list_bulleted" popup :label="$store.state.moduleLanguage.translations.shop_orderContent" :opened="true">
             <q-list highlight inset-separator>
               <q-item v-for="item in $store.state.moduleOrder.order_infos_content.articles" :key="item.id">
-                <q-item-side :avatar="item.image_path" />
+                <q-item-side :avatar="item.image_path || 'assets/sad.svg'" />
                 <q-item-main :label="item.name" label-lines="1" />
                 <q-item-side :stamp="item.quantity + 'x'" />
                 <q-item-side :stamp="item.size" />
@@ -101,7 +101,6 @@ export default {
   },
   computed: {
     itemsPrice () { return this.$store.getters['moduleOrder/getTotalPrice'] } // .toFixed(2)
-    // TODO: Update this imagePath () { return this.data.image_path || 'assets/sad.svg' }
   }
 }
 </script>

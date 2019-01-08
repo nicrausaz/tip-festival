@@ -4,7 +4,7 @@
       <q-card-media>
         <img src="statics/metro.jpeg">
         <q-card-title slot="overlay">
-          Transports
+          {{$store.state.moduleLanguage.translations.festival_transport}}
         </q-card-title>
       </q-card-media>
       <q-card-main>
@@ -37,12 +37,7 @@
         </q-card-title>
       </q-card-media>
       <q-card-main>
-        <p><b>Deux Food-Trucks seront présents !</b></p>
-        <p><b>Aventura Pizza: </b>Pizzas, <a href="http://www.aventurapizza.ch/">http://www.aventurapizza.ch/</a></p>
-        <p><b>Nomad Food: </b>Hamburger & Tacos, <a href="http://www.nomad-food.ch/">http://www.nomad-food.ch/</a></p>
-        <br>
-        <p><b>Un stand de boisson vous servira de nombreuses minérales et bières !</b></p>
-        <p><b>Amstein: </b>Boissons, <a href="https://www.amstein.ch/">https://www.amstein.ch/</a></p>
+        <p v-html="$store.state.moduleLanguage.infosTexts.food"></p>
       </q-card-main>
     </q-card>
     <q-card inline class="q-ma-sm sectionsItem">

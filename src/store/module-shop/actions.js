@@ -64,7 +64,7 @@ export function confirmOrder (context) {
   })
     .then(response => {
       Notify.create({
-        message: 'Commande passée avec succès !',
+        message: context.rootState.moduleLanguage.translations.shop_orderSuccess,
         color: 'positive',
         textColor: 'black',
         icon: 'warning',
